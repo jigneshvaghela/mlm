@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+
+
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>My account</span></li>
+                </ul>
+            </div>
+        </div>
+       
+        
+        
+        
+        
+        <div class="holder mt-0">
+           
+            
+            <div class="container">
+                <div class="row">
+                   
+                    <div class="col-md-3 aside aside--left">
+                        <!-- <div class="list-group"><a href="account-details.html" class="list-group-item">Account Details</a> <a href="account-addresses.html" class="list-group-item">My Addresses</a> <a href="account-wishlist.html" class="list-group-item active">My Wishlist</a> <a href="account-history.html" class="list-group-item">My Order History</a> <a href="#" class="list-group-item">My Reviews</a> <a href="#" class="list-group-item">My Saved Tags</a> <a href="#" class="list-group-item">Compare Products</a></div> -->
+                        <div class="list-group">
+                            <a href="{% url 'accounts:account_details' %}" class="list-group-item">Account Details</a> 
+                            <a href="{% url 'accounts:personal_details' %}" class="list-group-item">Personal Info</a> 
+                            <a href="{% url 'accounts:account_addresses' %}" class="list-group-item">My Addresses</a> 
+                            <a href="{% url 'accounts:account_wishlist' %}" class="list-group-item active">My Wishlist</a>
+                            <a href="{% url 'payment:account_history' %}" class="list-group-item">My Order History</a>
+
+                              <!-- <a href="#" class="list-group-item">My Reviews</a> 
+                              <a href="#" class="list-group-item">My Saved Tags</a>
+                               <a href="#" class="list-group-item">Compare Products</a> -->
+                        </div>
+                    </div>
+                     
+                    <div class="col-md-9 aside">
+                        
+                        <h2>My Wishlist</h2>
+                       
+                        {% for k,l in bid_count_dict.items %}
+                        <div class="cart-table cart-table--wishlist">
+                            
+                            
+                            
+                            
+                            <div class="cart-table-prd">
+                                
+                                <div class="cart-table-prd-image"><a href="{% url 'accounts:product1' l.id %}"><img src="{{l.Image.url}}" alt=""></a></div>
+                                <div class="cart-table-prd-name">
+                                    
+                                    
+                                    <h5><a href="{% url 'accounts:product1' l.id %}">{{l.Product_Name}}</a></h5>
+                                    <h2><a href="{% url 'accounts:product1' l.id %}"></a></h2>
+                                </div>
+                                <div class="cart-table-prd-price"><span>price:</span> <b>$ {{l.Price}}</b></div>
+                               <h5 class="card-title" hidden id="Product_Namepr{{l.id}}">{{l.Product_Name|slice:"0:20"}}...</h5>
+                                    <p class="card-text" id="Product_img{{l.id}}" hidden>{{l.Image.url}}</p>
+                                    <h6 class="card-title" hidden>Price: <span id="Pricepr{{l.id}}">{{l.Price}}</span></h6>
+                                                          
+       <span id="divpr{{l.id}}" class="divpr">
+
+                                <div class="cart-table-addtocart"><button id="pr{{l.id}}" class="btn btn-primary cart">AddTo Cart</button></span>
+                                 <a href="{% url 'accounts:bookmarkdlt' l.id %}" class="icon-cross delete-from-wishlist" title="Remove from wishlist"></a></div> 
+                                
+                            </div>
+                           
+                                
+                            
+                            
+                             
+                            <!-- <div class="cart-table-prd">
+                                <div class="cart-table-prd-image"><a href="#"><img src="images/products/product-02.jpg" alt=""></a></div>
+                                <div class="cart-table-prd-name">
+                                    <h5><a href="#">canverse</a></h5>
+                                    <h2><a href="#">Long top with print</a></h2>
+                                </div>
+                                <div class="cart-table-prd-price"><span>price:</span> <b>$ 20.00</b></div>
+                                <div class="cart-table-addtocart"><a href="#" class="btn">Add To Cart</a> <a href="#" class="icon-cross delete-from-wishlist" title="Remove from wishlist"></a></div>
+                            </div>
+                            <div class="cart-table-prd">
+                                <div class="cart-table-prd-image"><a href="#"><img src="images/products/product-14.jpg" alt=""></a></div>
+                                <div class="cart-table-prd-name">
+                                    <h5><a href="#">saucany</a></h5>
+                                    <h2><a href="#">Knitted sweater</a></h2>
+                                </div>
+                                <div class="cart-table-prd-price"><span>price:</span> <b>$ 199.00</b></div>
+                                <div class="cart-table-addtocart"><a href="#" class="btn">Add To Cart</a> <a href="#" class="icon-cross delete-from-wishlist" title="Remove from wishlist"></a></div>
+                            </div> -->
+                        </div>
+                        {% endfor %}
+                      
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+            
+           
+        </div>
+        
+        
+        
+    </div>
+    {% endblock %}

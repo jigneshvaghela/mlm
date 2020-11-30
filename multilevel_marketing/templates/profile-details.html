@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>My account</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 aside aside--left">
+                        <div class="list-group">
+                            <a href="{% url 'accounts:account_details' %}" class="list-group-item">Account Details</a> 
+                            <a href="{% url 'accounts:personal_details' %}" class="list-group-item active">Personal Info</a> 
+                            <a href="{% url 'accounts:account_addresses' %}" class="list-group-item">My Addresses</a> 
+                            <a href="{% url 'accounts:account_wishlist' %}" class="list-group-item">My Wishlist</a>
+                             <a href="{% url 'payment:account_history' %}" class="list-group-item">My Order History</a>
+                              <!-- <a href="#" class="list-group-item">My Reviews</a> 
+                              <a href="#" class="list-group-item">My Saved Tags</a>
+                               <a href="#" class="list-group-item">Compare Products</a> -->
+                            </div>
+                    </div>
+                    <div class="col-md-8 aside">
+                        <h2>Personal Info</h2>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img style="height:100px; width:125px; margin-left:182px;" src="{{pro.profile_pic.url}}">
+                                        <h3 style="margin-top: -90px;">Personal Info</h3>
+                                       
+                                        <p>
+                                            <b>First Name:</b> {{user.first_name}}<br><b>Last Name:</b> {{user.last_name}}<br><b>E-mail:</b> {{user.email}}<br><b>Phone:</b> {{pro.phone}}
+                                           
+                                        </p>
+                                        
+                                        <!-- <img src="media/{{user_.profile_pic}}"> -->
+                                        <div class="mt-2 clearfix"><a href="#" class="link-icn js-show-form" data-form="#updateDetails"><i class="icon-pencil"></i>Edit</a></div>
+                                    </div>
+                                   
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <form method='POST' action="{% url 'accounts:personal_details' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="card mt-3 d-none" id="updateDetails">
+                            <div class="card-body">
+                                <h3>Update Personal Info</h3>
+                               
+                                <div class="row mt-2">
+                                    
+										<div class="upload-button">
+                        
+                                        </div>
+                                        
+										<input class="file-upload" id="upload" name="profile_pic" type="file" value="{{pro.profile_pic.url}}" />
+                                        
+                                        <div class="col-sm-4"><label class="text-uppercase">First Name:</label>
+                                        <div class="form-group"><input type="text" class="form-control" name="first_name"   value="{{user.first_name}}"></div>
+                                    </div>
+                                    <div class="col-sm-4"><label class="text-uppercase">Last Name:</label>
+                                        <div class="form-group"><input type="text" class="form-control" name="last_name"   value="{{user.last_name}}"></div>
+                                    </div>
+                                    <div class="col-sm-4"><label class="text-uppercase">E-mail:</label>
+                                        <div class="form-group"><input type="email" class="form-control" name="email"   value="{{user.email}}"></div>
+                                    </div>
+                                    <div class="col-sm-4"><label class="text-uppercase">Phone:</label>
+                                        <div class="form-group"><input type="text" class="form-control" name="phone"   value="{{pro.phone}}"></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="row mt-2">
+                                    <div class="col-sm-4"><label class="text-uppercase">E-mail:</label>
+                                        <div class="form-group"><input type="email" class="form-control" name="email"   value="{{user.email}}"></div>
+                                    </div>
+                                    <div class="col-sm-4"><label class="text-uppercase">Phone:</label>
+                                        <div class="form-group"><input type="text" class="form-control" name="phone"   value="{{pro.phone}}"></div>
+                                    </div>
+                                </div> -->
+                                <div class="mt-2"><button type="reset" class="btn btn--alt js-close-form" data-form="#updateDetails">Cancel</button>
+                                <button type="submit" class="btn ml-1">Update</button>
+                            </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ {% endblock %}

@@ -1,0 +1,68 @@
+<h4>{{request.user}}</h4>
+<ul>
+    {% for i in lists %}
+       
+        <li>{{i.child.username}}</li>
+        {% for j in child %}
+        <ul>
+            {% ifequal j.parent_id i.child_id %}
+                <li>{{j.child.username}}</li>
+                    
+                        {% for k in child %}
+                        <ul>
+                            {% ifequal k.parent_id j.child_id %}
+                                <li>{{k.child.username}}</li>
+                                
+
+
+                                {% for l in child %}
+                                <ul>
+                                    {% ifequal l.parent_id k.child_id %}
+                                        <li>{{l.child.username}}</li>
+                                        
+
+
+                                        {% for m in child %}
+                                        <ul>
+                                            {% ifequal m.parent_id l.child_id %}
+                                                <li>{{m.child.username}}</li>
+                                                
+
+                                                {% for n in child %}
+                                                    <ul>
+                                                        {% ifequal n.parent_id m.child_id %}
+                                                            <li>{{n.child.username}}</li>
+                                            
+
+
+
+                                                            
+
+
+                                                            {% endifequal %} 
+                                                        </ul>
+                                                {% endfor %}
+
+
+
+                                            {% endifequal %} 
+                                        </ul>
+                                        {% endfor %}        
+
+
+
+                                    {% endifequal %} 
+                                </ul>
+                                {% endfor %}
+
+
+                            {% endifequal %} 
+                        </ul>
+                        {% endfor %}
+
+                    
+            {% endifequal %} 
+        </ul>
+        {% endfor %}
+    {% endfor %}
+</ul>

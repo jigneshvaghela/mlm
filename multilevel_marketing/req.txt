@@ -1,0 +1,7 @@
+django==2.2.8
+django-colorfield
+django-phonenumber-field    
+phonenumbers
+simplejson
+pycryptodome
+Pillow

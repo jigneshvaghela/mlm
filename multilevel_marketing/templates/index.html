@@ -1,0 +1,665 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.like {
+    padding-right: 6px !important;
+    color: white !important;
+    font-size: 1.6em !important;
+    padding-top: 5px !important;
+    animation: like 0.5s linear !important;
+}
+@keyframes like {
+    0%{
+    transform: scale(1.7);
+    }
+    40%{
+    transform: scale(1);
+    }
+    48%{
+    transform: scale(1);
+    }
+    100%{
+    transform: scale(1);
+    }
+}
+.heart11  {
+    color: #FF0000 !important;
+    animation: heart 0.5s linear !important;
+}
+    
+@keyframes heart11 {
+    0%{
+    transform: scale(1.7);
+    }
+    40%{
+    transform: scale(1);
+    }
+    48%{
+    transform: scale(1);
+    }
+    100%{
+    transform: scale(1);
+    }
+}
+</style>   
+    
+
+    <div class="page-content">
+        <!-- BN Slider 1 -->
+        <div class="holder fullwidth full-nopad mt-0">
+            <div class="container">
+                <div class="bnslider-wrapper">
+                    <div class="bnslider bnslider--lg keep-scale" id="bnslider-001" data-slick='{"arrows": true, "dots": true}' data-autoplay="false" data-speed="5000" data-start-width="1920" data-start-height="980" data-start-mwidth="900" data-start-mheight="980">
+                         {% for i in queryset %}
+                        <div class="bnslider-slide">
+                            <div class="bnslider-image" style="background-image: url('{{i.image.url}}');">
+                            </div>
+                            <div class="bnslider-text-wrap bnslider-overlay">
+                                <div class="bnslider-text-content txt-middle txt-left">
+                                    <div class="bnslider-text-content-flex container">
+                                        <div class="bnslider-vert ml-0">
+                                            <div class="bnslider-text bnslider-text--lg" data-animation="swoopInLeft" data-animation-delay="0.2s">CLOTHS</div>
+                                            <div class="bnslider-text bnslider-text--lg" data-animation="swoopInLeft" data-animation-delay=".5s" style="color: #e53d60;">MEDICINES</div>
+                                            <div class="bnslider-text bnslider-text--sm" data-animation="swoopInLeft" data-animation-delay=".9s">AND GIFTS </div>
+                                            <div class="btn-wrap" data-animation="fadeIn" data-animation-delay="1.5s" style="margin-top: 1em"><a href="{% url 'accounts:category' %}" class="btn-decor">shop now<span class="btn-line"></span></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="bnslider-loader">
+                        <div class="loader-wrap">
+                            <div class="dots">
+                                <div class="dot one"></div>
+                                <div class="dot two"></div>
+                                <div class="dot three"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bnslider-arrows container">
+                        <div></div>
+                    </div>
+                    <div class="bnslider-dots container"></div>
+                </div>
+            </div>
+        </div>
+        <!-- //BN Slider 1 -->
+        <div class="holder global_width">
+            <div class="container">
+                <div class="row bnr-grid">
+                    <div class="col-md-6"><a href="#" class="bnr-wrap">
+                            <div class="bnr bnr29 bnr--style-8 bnr--left bnr--middle bnr-hover-scale" data-fontratio="5.55"><img src="{% static 'images/menu/cloths main2.jpg' %}" data-src="{% static 'images/menu/cloths main2.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">PROTEIN</span> <span class="bnr-text-p">Lorem ipsum dolor sit amet consest adicpising elitr anno dolor sit amet Nullam dui anno anno.</span> <span class="btn-decor btn-decor--xs bnr-btn">shop now<span class="btn-line" style="background-color: #fff;"></span></span></span></span></div>
+                        </a></div>
+                    <div class="col-md-6"><a href="#" class="bnr-wrap">
+                            <div class="bnr bnr29 bnr--style-8 bnr--left bnr--middle bnr-hover-scale" data-fontratio="5.55"><img src="{% static 'images/menu/cloths main 3.jpg' %}" data-src="{% static 'images/menu/cloths main 3.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">AMINO ACIDS</span> <span class="bnr-text-p">Lorem ipsum dolor sit amet consest adicpising elitr anno dolor sit amet Nullam dui anno anno.</span> <span class="btn-decor btn-decor--xs bnr-btn">shop now<span class="btn-line" style="background-color: #fff;"></span></span></span></span></div>
+                        </a></div>
+                </div>
+                <div class="row bnr-grid">
+                    <div class="col-md-6"><a href="#" class="bnr-wrap">
+                            <div class="bnr bnr29 bnr--style-8 bnr--left bnr--middle bnr-hover-scale" data-fontratio="5.55"><img src="{% static 'images/menu/gift main1.jpg' %}" data-src="{% static 'images/menu/gift main1.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">VITAMINS / MINERALS</span> <span class="bnr-text-p">Lorem ipsum dolor sit amet consest adicpising elitr anno dolor sit amet Nullam dui anno anno.</span> <span class="btn-decor btn-decor--xs bnr-btn">shop now<span class="btn-line" style="background-color: #fff;"></span></span></span></span></div>
+                        </a></div>
+                    <div class="col-md-6"><a href="#" class="bnr-wrap">
+                            <div class="bnr bnr29 bnr--style-8 bnr--left bnr--middle bnr-hover-scale" data-fontratio="5.55"><img src="{% static 'images/menu/main medicine 1.jpg' %}" data-src="{% static 'images/menu/main medicine 1.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">WEIGHT LOSS / ENERGY</span> <span class="bnr-text-p">Lorem ipsum dolor sit amet consest adicpising elitr anno dolor sit amet Nullam dui anno anno.</span> <span class="btn-decor btn-decor--xs bnr-btn">shop now<span class="btn-line" style="background-color: #fff;"></span></span></span></span></div>
+                        </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="holder">
+            <div class="container">
+                <div class="title-wrap text-center">
+                    <h2 class="h1-style">Deals Of The Day</h2>
+
+
+
+
+                </div>
+
+                <div class="countdown-box-full">
+                    <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                </div>
+                <div class="prd-grid three-in-row prd-text-center prd-carousel js-prd-carousel slick-arrows-squared data-to-show-4 data-to-show-sm-3 data-to-show-xs-2" data-slick='{"slidesToShow": 4, "responsive": [{"breakpoint": 768,"settings": {"slidesToShow": 3}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+                    {% for i in resultD %}
+                    <div class="prd prd-has-loader prd-has-countdown">
+                        
+                        <div class="prd-inside">
+                            
+                            <div class="prd-img-area"><a href="{% url 'accounts:product1' i.id %}" class="prd-img"><img src="{{i.Image.url}}" data-srcset="{{i.Image.url}}" alt="Nitro tech" class="js-prd-img lazyload"></a>
+                                <!-- <div class="label-sale">-87%</div> -->
+                                
+                                <form method="POST">
+                                    {% csrf_token %}
+                               {% if i.id in wishlisted_list %}
+                                <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                
+                                {% else %}
+                                <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                {% endif %}
+                                    </form>
+                                
+                                <div class="countdown-box">
+                                    <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                </div>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="{% url 'accounts:product1' i.id %}">{{i.Product_Type}}</a></div>
+                                <h2 class="prd-title"><a href="{% url 'accounts:product1' i.id %}">{{i.Product_Name}}</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; {{i.Discount_Price}}</div>
+                                    <div class="price-old">&#8377; {{i.Price}}</div>
+                                    <!-- <div class="price-comment">You save &#8377; 70.00</div> -->
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+
+                                        <div class="prd-price">
+                                                <!-- <form action="https://api.whatsapp.com/send" target="_blank"> -->
+                                                    
+                                            
+                                                   <a style="height:38px; background-color:#1d1d1d;color:white;
+                                                    border: none; display: inline-block;cursor: pointer; " href="whatsapp://send?text=http://localhost:8000/referralcode/{{user_.referral_code}}">                                                                                                  
+                                                   
+                                                    <i class="fa fa-whatsapp" style="font-size:30px;color:#fff;
+                                                    background:linear-gradient(#25d366,#25d366)10px /13px 13px no-repeat,
+                                                    radial-gradient(#25d366 59%,transparent 0);"></i>
+                                                    Share
+                                                    <!-- <input type="submit" class="btn" value="share"> -->
+                                                </a>
+                                                <!-- </form> -->
+                                                        
+                                               
+                                                           
+                                                <p class="card-text" id="Product_idpr{{i.id}}" hidden>{{i.id}}</p>
+                                                <h5 class="card-title" hidden id="Product_Namepr{{i.id}}">{{i.Product_Name}}</h5>
+                                                <p class="card-text" id="Product_imgpr{{i.id}}" hidden>{{i.Image.url}}</p>
+                                                <h6 class="card-title" hidden>Courier: <span id="Courierpr{{i.id}}">{{i.Courier_charge}}</span></h6>
+                                                <!-- <h6 class="card-title" hidden>Size: <span id="Product_Sizepr{{i.id}}">{{i.Product_Size}}</span></h6> -->
+                                                <h6 class="card-title" hidden>Price: <span id="Pricepr{{i.id}}">{{i.Price}}</span></h6>
+                                            </br>
+                                                <span id="div{{i.id}}" class="divpr">
+                                                    <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button>
+                                                </span>
+                                      
+                                                  
+                                                  
+
+                                                <input type='text' hidden name='Name1' value="{{user_.referral_code}}" hidden>
+                                               
+                                                 </div>     
+                              
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#{{i.id}}"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile">
+                                        {% ifnotequal Product_Size None %}
+                                        <span class="label-options">Sizes:</span>
+                                        {% endifnotequal%}
+                                        {% for Product_Size in i.Product_Size.all %}
+                                        
+                                                <ul class="list-options size-swatch">
+                                                    
+                                                    <li class="active"><span>{{Product_Size}}</span></li>
+                                                    
+                                                  
+                                                </ul>
+                                            
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div> 
+                    {% endfor %}                   
+                </div>                
+                <div class="more-link-wrapper text-center"><a href="{% url 'accounts:category' %}" class="btn-decor">shop all</a></div>
+            </div>
+        </div>
+        <!-- <div class="holder fullwidth full-nopad">
+            <div class="container">
+                banner from the editor Banner22 <a href="#" class="bnr-wrap">
+                    <div class="bnr bnr22 bnr--style-1 bnr-full bnr--middle bnr--center bnr-hover-scale" data-fontratio="15"><img src="{% static 'images/menu/50off.jpg' %}" data-src="{% static 'images//menu/50off.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption" style="padding: 6% 6%;"><span class="bnr-text-wrap"><span class="bnr-text5 custom-color">50% OFF</span> <span class="bnr-text2">CREATINE MONOHYDRATE</span> <span class="btn-decor d-none d-md-inline-block bnr-btn">shop now<span class="btn-line"></span></span></span></span></div>
+                </a> banner from the editor
+            </div>
+        </div> -->
+        <div class="holder">
+            <div class="container">
+                <div class="title-wrap text-center">
+                    <h2 class="h1-style">Recommended Products</h2>
+                </div>
+                <div class="prd-grid three-in-row prd-text-center prd-carousel js-prd-carousel slick-arrows-squared data-to-show-4 data-to-show-sm-3 data-to-show-xs-2" data-slick='{"slidesToShow": 4, "responsive": [{"breakpoint": 768,"settings": {"slidesToShow": 3}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+                    <div class="prd prd-has-loader prd-has-countdown">
+                        <div class="prd-inside">
+                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-55.png' %}" alt="Nitro tech" class="js-prd-img lazyload"></a>
+                                <div class="label-sale">-87%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                <div class="countdown-box">
+                                    <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                </div>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="#">almod</a></div>
+                                <h2 class="prd-title"><a href="product.html">Nitro tech</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; 10.00</div>
+                                    <div class="price-old">&#8377; 80.00</div>
+                                    <div class="price-comment">You save &#8377; 70.00</div>
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                        <ul class="list-options size-swatch">
+                                            <li class="active"><span>xs</span></li>
+                                            <li><span>s</span></li>
+                                            <li><span>m</span></li>
+                                            <li><span>l</span></li>
+                                            <li><span>xl</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prd prd-has-loader">
+                        <div class="prd-inside">
+                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-56.png' %}" alt="Stacked protein" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="#">bone</a></div>
+                                <h2 class="prd-title"><a href="product.html">Stacked protein</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; 80.00</div>
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                        <ul class="list-options size-swatch">
+                                            <li class="active"><span>xs</span></li>
+                                            <li><span>s</span></li>
+                                            <li><span>m</span></li>
+                                            <li><span>l</span></li>
+                                            <li><span>xl</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prd prd-has-loader">
+                        <div class="prd-inside">
+                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-51.png' %}" alt="Soy protein" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="#">bone</a></div>
+                                <h2 class="prd-title"><a href="product.html">Soy protein</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; 70.00</div>
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                        <ul class="list-options size-swatch">
+                                            <li class="active"><span>xs</span></li>
+                                            <li><span>s</span></li>
+                                            <li><span>m</span></li>
+                                            <li><span>l</span></li>
+                                            <li><span>xl</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prd prd-has-loader">
+                        <div class="prd-inside">
+                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-52.png' %}" alt="Bone broth protein" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="#">bone</a></div>
+                                <h2 class="prd-title"><a href="product.html">Bone broth protein</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; 50.00</div>
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                        <ul class="list-options size-swatch">
+                                            <li class="active"><span>xs</span></li>
+                                            <li><span>s</span></li>
+                                            <li><span>m</span></li>
+                                            <li><span>l</span></li>
+                                            <li><span>xl</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prd prd-has-loader">
+                        <div class="prd-inside">
+                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-53.png' %}" alt="Re-kaged" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="#">keto</a></div>
+                                <h2 class="prd-title"><a href="product.html">Re-kaged</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; 60.00</div>
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                        <ul class="list-options size-swatch">
+                                            <li class="active"><span>xs</span></li>
+                                            <li><span>s</span></li>
+                                            <li><span>m</span></li>
+                                            <li><span>l</span></li>
+                                            <li><span>xl</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prd prd-has-loader">
+                        <div class="prd-inside">
+                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-54.png' %}" alt="Clean burn" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                <div class="gdw-loader"></div>
+                            </div>
+                            <div class="prd-info">
+                                <div class="prd-tag prd-hidemobile"><a href="#">bone</a></div>
+                                <h2 class="prd-title"><a href="product.html">Clean burn</a></h2>
+                                <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                <div class="prd-price">
+                                    <div class="price-new">&#8377; 55.00</div>
+                                </div>
+                                <div class="prd-hover">
+                                    <div class="prd-action">
+                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                        <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div> -->
+                                    </div>
+                                    <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                        <ul class="list-options size-swatch">
+                                            <li class="active"><span>xs</span></li>
+                                            <li><span>s</span></li>
+                                            <li><span>m</span></li>
+                                            <li><span>l</span></li>
+                                            <li><span>xl</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-link-wrapper text-center"><a href="{% url 'accounts:category' %}" class="btn-decor">shop all</a></div>
+            </div>
+        </div>
+        <div class="holder py-4 py-md-7 aside--bg-none holder-bg-04">
+            <div class="container">
+                <div class="row vert-margin">
+                    <div class="col-sm-5 col-md-4 col-lg-35">
+                        <div class="prd-carousel-banner bnr bnr--style-1-1 bnr--center bnr--top bg-cover" data-fontratio="2.976" style="background-image: url({% static 'images/home-nutrition/banner-nutrition-carousel-left.jpg' %});">
+                            <img src="{% static 'images/home-nutrition/banner-nutrition-carousel-left.jpg' %}" alt="" class="d-none d-sm-block"> 
+                            <span class="bnr-caption"><span class="bnr-text-wrap">
+                                <span class="bnr-text1">NEW</span> <span class="bnr-text3">ARRIVALS</span> 
+                                <span class="bnr-text-p text-left">New Arrivals For U.</span></span></span>
+                            <div class="carousel-arrows slick-arrows-squared"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-md-8 col-lg-75">
+                       
+                        <div class="prd-grid prd-text-center hide-price-comment prd-carousel js-prd-carousel js-product-isotope-sm data-to-show-3 data-to-show-sm-2 data-to-show-xs-2 sm-limit-4" data-slick='{"slidesToShow": 3, "responsive": [{"breakpoint": 1200,"settings": {"slidesToShow": 3}},{"breakpoint": 768,"settings": {"slidesToShow": 2}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+                            {% for i in results %}
+                            <div class="prd prd-has-loader">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="{% url 'accounts:product1' i.id %}" class="prd-img"><img src="{{i.Image.url}}" data-srcset="{{i.Image.url}}" alt="Syntha-6 edge" class="js-prd-img lazyload"></a>
+                                        <div class="label-new">NEW</div><form method="POST">
+                                            {% csrf_token %}
+                                       {% if i.id in wishlisted_list %}
+                                        <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                        
+                                        {% else %}
+                                        <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                        {% endif %}
+                                            </form>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="{% url 'accounts:product1' i.id %}">{{i.Product_Type}}</a></div>
+                                        <h2 class="prd-title"><a href="{% url 'accounts:product1' i.id %}">{{i.Product_Name}}</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">&#8377; {{i.Discount_Price}}</div>
+                                            <div class="price-old">&#8377; {{i.Price}}</div>
+                                            <!-- <div class="price-comment">You save &#8377; 70.00</div> -->
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+        
+                                                <div class="prd-price">
+                                                        <!-- <form action="https://api.whatsapp.com/send" target="_blank"> -->
+                                                            
+                                                    
+                                                           <a style="height:38px; background-color:#1d1d1d;color:white;
+                                                            border: none; display: inline-block;cursor: pointer; " href="whatsapp://send?text=http://localhost:8000/referralcode/{{user_.referral_code}}">                                                                                                  
+                                                           
+                                                            <i class="fa fa-whatsapp" style="font-size:30px;color:#fff;
+                                                            background:linear-gradient(#25d366,#25d366)10px /13px 13px no-repeat,
+                                                            radial-gradient(#25d366 59%,transparent 0);"></i>
+                                                            Share
+                                                            <!-- <input type="submit" class="btn" value="share"> -->
+                                                        </a>
+                                                        <!-- </form> -->
+                                                                
+                                                       
+                                                                   
+                                                        <p class="card-text" id="Product_idpr{{i.id}}" hidden>{{i.id}}</p>
+                                                        <h5 class="card-title" hidden id="Product_Namepr{{i.id}}">{{i.Product_Name}}</h5>
+                                                        <p class="card-text" id="Product_imgpr{{i.id}}" hidden>{{i.Image.url}}</p>
+                                                       
+                                                        <h6 class="card-title" hidden>Courier: <span id="Courierpr{{i.id}}">{{i.Courier_charge}}</span></h6>
+                                                        <!-- <h6 class="card-title" hidden>Size: <span id="Product_Sizepr{{i.id}}">{{i.Product_Size}}</span></h6> -->
+                                                        <h6 class="card-title" hidden>Price: <span id="Pricepr{{i.id}}">{{i.Price}}</span></h6>
+                                                    </br>
+                                                        <span id="div{{i.id}}" class="divpr">
+                                                            <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button>
+                                                        </span>
+                                              
+                                                          
+                                                          
+        
+                                                        <input type='text' hidden name='Name1' value="{{user_.referral_code}}" hidden>
+                                                       
+                                                         </div>     
+                                      
+                                                <!-- <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#{{i.id}}"></a></div> -->
+                                            </div>
+                                            <div class="prd-options prd-hidemobile">
+                                                {% ifnotequal Product_Size None %}
+                                                <span class="label-options">Sizes:</span>
+                                                {% endifnotequal%}
+                                                {% for Product_Size in i.Product_Size.all %}
+                                                
+                                                        <ul class="list-options size-swatch">
+                                                            
+                                                            <li class="active"><span>{{Product_Size}}</span></li>
+                                                            
+                                                          
+                                                        </ul>
+                                                    
+                                                {% endfor %}
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="more-link-wrapper text-center mt-3"><a href="{% url 'accounts:category' %}" class="btn-decor">show all</a></div>
+            </div>
+        </div>
+        <div class="holder">
+            <div class="container">
+                <div class="row vert-margin">
+                    <!-- class order-sm-2  -  move banner to right -->
+                    <div class="col-sm-5 col-md-4 col-lg-35 order-sm-2">
+                        <div class="prd-carousel-banner bnr bnr--style-1-1 bnr--center bnr--top bg-cover" data-fontratio="2.976" style="background-image: url({% static 'images/home-nutrition/banner-nutrition-carousel-right.jpg' %});"><img src="{% static 'images/home-nutrition/banner-nutrition-carousel-right.jpg' %}" alt="" class="d-none d-sm-block"> <span class="bnr-caption"><span class="bnr-text-wrap">
+                            <span class="bnr-text1">Comming Soon</span> <span class="bnr-text3">SALES</span> 
+                            <span class="bnr-text-p text-left">Comming Soon.</span></span></span>
+                            <div class="carousel-arrows slick-arrows-squared"></div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-sm-7 col-md-8 col-lg-75">
+                        <div class="prd-grid prd-text-center hide-price-comment prd-carousel js-prd-carousel js-product-isotope-sm data-to-show-3 data-to-show-sm-2 data-to-show-xs-2 sm-limit-4" data-slick='{"slidesToShow": 3, "responsive": [{"breakpoint": 1200,"settings": {"slidesToShow": 3}},{"breakpoint": 768,"settings": {"slidesToShow": 2}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+                            {% for i in resultC %}
+                            <div class="prd prd-has-loader prd-has-countdown">
+                                
+                                <div class="prd-inside">
+                                    
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{{i.Image.url}}" data-srcset="{{i.Image.url}}" alt="Whey 100%" class="js-prd-img lazyload"></a>
+                                        <!-- <div class="label-sale">-71%</div> -->
+                                        <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <!-- <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">whey</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Whey 100%</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">&#8377; 20.00</div>
+                                            <div class="price-old">&#8377; 70.00</div>
+                                            <div class="price-comment">You save &#8377; false</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    
+                                </div>
+                                
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="more-link-wrapper text-center mt-3"><a href="{% url 'accounts:category' %}" class="btn-decor">show all</a></div>
+            </div>
+        </div><!-- banners carousel from the editor -->
+        <!-- <div class="holder global_width">
+            <div class="container">
+                <div class="row bnr-grid data-slick slick-arrows-aside-simple slick-arrows-mobile-lg" data-slick='{"dots":false,"arrows":true,"slidesToShow": 2,"responsive": [{"breakpoint": 992,"settings": {"slidesToShow": 2}},{"breakpoint": 768,"settings": {"slidesToShow": 1}}]}'>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="col-content">
+                            <a href="#" class="bnr-wrap">
+                                <div class="bnr bnr23 bnr--style-1 bnr--left bnr--middle bnr-hover-scale" data-fontratio="5.55"><img src="{% static 'images/menu/top50.jpg' %}" data-src="{% static 'images/menu/top50.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text3 bnr-text3-1 custom-color">TOP 50 </span><span class="bnr-text3 bnr-text3-2">BESTSELLERS </span><span class="btn-decor btn-decor--xs bnr-btn">shop now <span class="btn-line"></span></span></span></span></div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="col-content">
+                           <a href="#" class="bnr-wrap">
+                                <div class="bnr bnr23 bnr--style-1 bnr--left bnr--middle bnr-hover-scale" data-fontratio="5.55"><img src="{% static 'images/placeholder.png" data-src="{% static 'images/home-nutrition/banner-nutrition-07.jpg" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text3 bnr-text3-1">PROTEIN FOR ANYTIME </span><span class="bnr-text3 bnr-text3-2 custom-color">MUSCLE FUEL </span><span class="btn-decor btn-decor--xs bnr-btn">shop now <span class="btn-line"></span></span></span></span></div>
+                            </a>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- //banners carousel from the editor -->
+        <!-- <div class="holder">
+            <div class="container">
+                <div class="title-with-arrows title-with-arrows--center">
+                    <h2 class="h1-style">Our Blog</h2>
+                    <div class="carousel-arrows"></div>
+                </div>
+                <div class="post-prws post-prws-carousel" data-slick='{"slidesToShow": 4, "responsive": [{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 768,"settings": {"slidesToShow": 2}},{"breakpoint": 480,"settings": {"slidesToShow": 1}}]}'>
+                    <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png" data-src="images/home-nutrition/blog-img-1.jpg" class="lazyload" alt=""></a>
+                        <h4 class="post-title"><a href="#">Results for the month</a></h4>
+                        <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                        <div class="post-bot">
+                            <div class="post-date">09 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                            <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                        </div>
+                    </div>
+                    <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="images/home-nutrition/blog-img-2.jpg' %}" class="lazyload" alt=""></a>
+                        <h4 class="post-title"><a href="#">How to choose a protein</a></h4>
+                        <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                        <div class="post-bot">
+                            <div class="post-date">10 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                            <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                        </div>
+                    </div>
+                    <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="images/home-nutrition/blog-img-3.jpg' %}" class="lazyload" alt=""></a>
+                        <h4 class="post-title"><a href="#">Training schedule</a></h4>
+                        <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                        <div class="post-bot">
+                            <div class="post-date">11 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                            <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                        </div>
+                    </div>
+                    <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="images/home-nutrition/blog-img-4.jpg' %}" class="lazyload" alt=""></a>
+                        <h4 class="post-title"><a href="#">The right diet</a></h4>
+                        <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                        <div class="post-bot">
+                            <div class="post-date">12 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                            <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div> 
+  {% endblock %}

@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Category</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <!-- Two columns -->
+                <!-- Page Title -->
+                <div class="page-title text-center d-none d-lg-block">
+                    <div class="title">
+                        <h1>WOMEN’S</h1>
+                    </div>
+                </div>
+                <!-- /Page Title -->
+                <div class="row row-flex">
+                    <!-- Left column -->
+                    <div class="col-lg-3 aside aside--left fixed-col js-filter-col">
+                        <div class="fixed-col_container">
+                            <div class="filter-close">CLOSE</div>
+                            <div class="sidebar-block sidebar-block--mobile d-block d-lg-none">
+                                <div class="d-flex align-items-center">
+                                    <div class="selected-label">(6) FILTER</div>
+                                    <div class="selected-count ml-auto">SELECTED <span><b>25 items</b></span></div>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block open">
+                                <div class="sidebar-block_title"><span>Current Selection</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <div class="selected-filters-wrap">
+                                        <ul class="selected-filters">
+                                            <li><a href="#">Men</a></li>
+                                            <li><a href="#">Red</a></li>
+                                            <li><a href="#">Nike</a></li>
+                                            <li><a href="#">Above &#8377;200</a></li>
+                                            <li><a href="#">S</a></li>
+                                        </ul>
+                                        <div class="d-flex align-items-center"><a href="#" class="clear-filters"><span>Clear All</span></a>
+                                            <div class="selected-count ml-auto d-none d-lg-block">SELECTED<span><b>25 items</b></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Categories</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                        <li class="active"><a href="#">Women</a></li>
+                                        <li><a href="#">Men</a></li>
+                                        <li><a href="#">Electronics</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Colors</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="color-list two-column">
+                                        <li class="active"><a href="#" data-tooltip="Very long some color name" title="Very long some color name"><span class="value"><img src="images/colorswatch/color-red.png" alt=""></span><span class="colorname">Very long some color name (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Pink" title="Pink"><span class="value"><img src="images/colorswatch/color-pink.png" alt=""></span><span class="colorname">Pink (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Violet" title="Violet"><span class="value"><img src="images/colorswatch/color-violet.png" alt=""></span><span class="colorname">Violet (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Blue" title="Blue"><span class="value"><img src="images/colorswatch/color-blue.png" alt=""></span><span class="colorname">Blue (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Marine" title="Marine"><span class="value"><img src="images/colorswatch/color-marine.png" alt=""></span><span class="colorname">Marine (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Orange" title="Orange"><span class="value"><img src="images/colorswatch/color-orange.png" alt=""></span><span class="colorname">Orange (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Yellow" title="Yellow"><span class="value"><img src="images/colorswatch/color-yellow.png" alt=""></span><span class="colorname">Yellow (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Dark Yellow" title="Dark Yellow"><span class="value"><img src="images/colorswatch/color-darkyellow.png" alt=""></span><span class="colorname">Dark Yellow (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="Very long some color name" title="Very long some color name"><span class="value"><img src="images/colorswatch/color-black.png" alt=""></span><span class="colorname">Very long some color name (125)</span></a></li>
+                                        <li><a href="#" data-tooltip="White" title="White"><span class="value"><img src="images/colorswatch/color-white.png" alt=""></span><span class="colorname">White (125)</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Brands</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                        <li><a href="#">Adidas</a></li>
+                                        <li><a href="#">Nike</a></li>
+                                        <li class="active"><a href="#">Reebok</a></li>
+                                        <li><a href="#">Ralph Lauren</a></li>
+                                        <li><a href="#">Delpozo</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Price</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                        <li><a href="#">&#8377;100-&#8377;200</a></li>
+                                        <li class="active"><a href="#">Above &#8377;200</a></li>
+                                        <li><a href="#">Under &#8377;100</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Size 2 Column</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="size-list two-column" data-sort='["XXS","XS","S","M","L","XL","XXL","XXXL"]'>
+                                        <li data-value="L" class="active"><a href="#">L</a></li>
+                                        <li data-value="M"><a href="#">M</a></li>
+                                        <li data-value="S"><a href="#">S</a></li>
+                                        <li data-value="XL"><a href="#">XL</a></li>
+                                        <li data-value="XS"><a href="#">XS</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Size</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="size-list" data-sort='["XXS","XS","S","M","L","XL","XXL","XXXL"]'>
+                                        <li data-value="L" class="active"><a href="#">L</a></li>
+                                        <li data-value="XL"><a href="#">XL</a></li>
+                                        <li data-value="XXS"><a href="#">XXS</a></li>
+                                        <li data-value="XS"><a href="#">XS</a></li>
+                                        <li data-value="S"><a href="#">S</a></li>
+                                        <li data-value="XXL"><a href="#">XXL</a></li>
+                                        <li data-value="XXXL"><a href="#">XXXL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block open">
+                                <div class="sidebar-block_title"><span>Offer</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="banners-list">
+                                        <li><a href="#" style="background-image: url(images/pages/offer-banner-01.jpg)"><span>new</span></a></li>
+                                        <li class="active"><a href="#" style="background-image: url(images/pages/offer-banner-02.jpg)"><span>sale</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Popular tags</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="tags-list">
+                                        <li class="active"><a href="#">Jeans</a></li>
+                                        <li><a href="#">St.Valentine’s gift</a></li>
+                                        <li><a href="#">Sunglasses</a></li>
+                                        <li><a href="#">Discount</a></li>
+                                        <li><a href="#">Maxi dress</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Left column -->
+                    <!-- Center column -->
+                    <div class="col-lg aside">
+                        <!-- Filter Row -->
+                        <div class="filter-row invisible">
+                            <div class="row row-1 d-lg-none align-items-center">
+                                <div class="col">
+                                    <h1 class="category-title">WOMEN’S</h1>
+                                </div>
+                                <div class="col-auto ml-auto">
+                                    <div class="view-in-row d-md-none"><span data-view="data-to-show-sm-1"><i class="icon icon-view-1"></i></span> <span data-view="data-to-show-sm-2"><i class="icon icon-view-2"></i></span></div>
+                                    <div class="view-in-row d-none d-md-inline"><span data-view="data-to-show-md-2"><i class="icon icon-view-2"></i></span> <span data-view="data-to-show-md-3"><i class="icon icon-view-3"></i></span></div>
+                                </div>
+                            </div>
+                            <div class="row row-2">
+                                <div class="col-left d-flex align-items-center">
+                                    <div class="sort-by-holder">
+                                        <div class="select-label d-none d-lg-inline">Sort by:</div>
+                                        <div class="select-wrapper-sm d-none d-lg-inline-block"><select class="form-control input-sm">
+                                                <option value="featured">Featured</option>
+                                                <option value="rating">Rating</option>
+                                                <option value="price">Price</option>
+                                            </select></div>
+                                        <div class="select-directions d-none d-lg-inline"><span><i class="icon icon-arrow-down"></i></span> <span><i class="icon icon-arrow-up"></i></span></div>
+                                        <div class="dropdown d-flex d-lg-none align-items-center justify-content-center"><span class="select-label">Sort By</span>
+                                            <div class="select-wrapper-sm"><select class="form-control input-sm">
+                                                    <option value="featured">Featured</option>
+                                                    <option value="rating">Rating</option>
+                                                    <option value="price">Price</option>
+                                                </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-button d-lg-none"><a href="#" class="fixed-col-toggle">FILTER</a></div>
+                                </div>
+                                <div class="col col-center d-none d-lg-flex align-items-center justify-content-center">
+                                    <div class="view-label">View:</div>
+                                    <div class="view-in-row"><span data-view="data-to-show-3"><i class="icon icon-view-3"></i></span> <span data-view="data-to-show-4"><i class="icon icon-view-4"></i></span></div>
+                                </div>
+                                <div class="col-right ml-auto d-none d-lg-flex align-items-center">
+                                    <div class="items-count">35 item(s)</div>
+                                    <div class="show-count-holder">
+                                        <div class="select-label">Show:</div>
+                                        <div class="select-wrapper-sm"><select class="form-control input-sm">
+                                                <option value="featured">12</option>
+                                                <option value="rating">36</option>
+                                                <option value="price">100</option>
+                                            </select></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Filter Row -->
+                        <div class="prd-grid">
+                            <div class="empty-category">
+                                <div class="empty-category-text"><span>SORRY</span>, THIS CATEGORY IS CURRENTY EMPTY</div>
+                                <div class="empty-category-button"><a href="#" class="btn-decor">GO BACK</a></div>
+                                <div class="empty-category-icon"><i class="icon-sad-face"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Center column -->
+                </div>
+                <!-- /Two columns -->
+            </div>
+        </div>
+    </div>
+    {% endblock %}

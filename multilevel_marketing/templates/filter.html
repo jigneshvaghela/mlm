@@ -1,0 +1,489 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style>
+.like {
+  padding-right: 6px;
+  color: #00000030;
+  font-size: 1.6em;
+  padding-top: 5px;
+  animation: like 0.5s linear;
+}
+@keyframes like {
+  0%{
+    transform: scale(1.7);
+  }
+  40%{
+    transform: scale(1);
+  }
+  48%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.heart {
+  color: #FF0000;
+  animation: heart 0.5s linear;
+}
+
+@keyframes heart {
+  0%{
+    transform: scale(1.7);
+  }
+  40%{
+    transform: scale(1);
+  }
+  48%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.middle {
+  padding-top: 14px;
+}
+
+</style>   
+
+
+
+
+
+
+<div class="page-content">
+    <div class="holder mt-0">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li><span>Category</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="holder mt-0">
+        <div class="container">
+            <div class="row">
+                <!-- Left column -->
+                <div class="col-lg-3 aside aside--left fixed-col js-filter-col">
+                    <div class="fixed-col_container">                                                        
+                            
+                        </div>
+                       
+                    </div>
+                    
+                   
+                  
+                   
+                
+               
+                
+                    <!-- /Left column -->
+                    <!-- Center column -->
+                    <div class="col-lg aside">
+                        <div class="prd-grid-wrap">
+                            <!-- Filter Row -->
+                                                        
+                            <!-- /Filter Row -->
+                            <!-- Products Grid -->
+                            <div class="prd-grid product-listing data-to-show-3 data-to-show-md-3 data-to-show-sm-2 js-category-grid">
+                                {% for i in page_obj %}
+                                
+                                <div class="prd prd-has-loader prd-new prd-popular">
+                                    <div class="prd-inside">
+                                        
+                                        <div class="prd-img-area"><a href="{% url 'accounts:product1' i.id %}" class="prd-img"><img class="img_hight" src="{{i.Image.url}}" data-srcset="{{i.Image.url}}" alt="Glamor shoes"></a>
+                                            
+                                            {% if i.New_Arrivals == True %}
+                                        
+                                            <div class="label-new">NEW</div>
+                                            
+                                            {% elif i.Availability == 0 %}
+                                                <div class="label-outstock">OUT OF STOCK</div>
+                                                
+                                            {% endif %}
+                                            <form method="POST">
+                                                {% csrf_token %}
+                                           {% if i.id in wishlisted_list %}
+                                            <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                            
+                                            {% else %}
+                                            <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                            {% endif %}
+                                                </form>
+                                            <ul class="list-options color-swatch prd-hidemobile">
+                                                <li data-image="{{i.Image.url}}"><a href="{% url 'accounts:product1' i.id %}" class="js-color-toggle"><img src="{{i.Image.url}}" class="lazyload" alt="Color Name"></a></li>
+                                                <li data-image="{{i.Image.url}}"><a href="{% url 'accounts:product1' i.id %}" class="js-color-toggle"><img src="{{i.Image.url}}" data-srcset="" class="lazyload" alt="Color Name"></a></li>
+                                            </ul>
+                                            <div class="gdw-loader"></div>
+                                        </div>
+                                        <div class="prd-info">
+                                            <div class="prd-tag prd-hidemobile" id="chat_container"><a href="{% url 'accounts:product1' i.id %}">{{i.Product_Name}}</a></div>
+                                            <h2 class="prd-title"><a href="">{{i.Product_Description}}</a></h2>
+                                            <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                            <div class="prd-price">
+                                                <div class="price-new">&#8377; {{i.Price}}</div>
+                                                </div>
+                                               <div class="prd-price">
+                                                <form action="https://api.whatsapp.com/send" target="_blank">
+                                                    <input type="hidden" name="text" value="https://localhost:8000/referralcode/referralcode={{user_.referral_code}}">
+                                                   
+                                                    
+                                            
+
+                                                    <button style="height:38px; background-color:#1d1d1d;color:white;
+                                                    border: none; display: inline-block;cursor: pointer; ">                                                                                                  
+                                                   
+                                                    <i class="fa fa-whatsapp" style="font-size:30px;color:#fff;
+                                                    background:linear-gradient(#25d366,#25d366)10px /13px 13px no-repeat,
+                                                    radial-gradient(#25d366 59%,transparent 0);"></i>
+                                                    Share
+                                                    <!-- <input type="submit" class="btn" value="share"> -->
+                                                    </button>
+                                                </form>
+                                                        
+                                               
+                                                            <p class="card-text" id="Product_idpr{{i.id}}" hidden>{{i.id}}</p>
+                                                            <h5 class="card-title" hidden id="Product_Namepr{{i.id}}">{{i.Product_Name}}</h5>
+                                                            <p class="card-text" id="Product_imgpr{{i.id}}" hidden>{{i.Image.url}}</p>
+                                                            <h6 class="card-title" hidden>Price: <span id="Pricepr{{i.id}}">{{i.Price}}</span></h6>
+                                                            <h6 class="card-title" hidden>Courier charge: <span id="Courierpr{{i.id}}">{{i.Courier_charge}}</span></h6>
+                                                            <span id="div{{i.id}}" class="divpr">
+                                                                {% if i.Availability == 0 %}
+                                                                <button class="btn btn-primary cart" disabled>AddTo Cart</button>
+                                                                {% else %}
+                                                                <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button>
+                                                                {% endif %}
+                                                                <!-- <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button> -->
+                                                            </span>
+                                                  
+                                                  
+
+                                                <input type='text' hidden name='Name1' value="{{user_.referral_code}}" hidden>
+                                               
+                                                 </div>            
+                                               
+                                                
+                                           
+                                         
+                                            
+                                            <!-- <button class="add_item_button" product_id="{{ i.id }}">Add</button> -->
+                                            
+
+
+                                            <div class="prd-hover">
+                                                <div class="prd-action">
+                                                    
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                    
+                                                        <!-- <input type="hidden">  -->
+                                                    <!-- <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i>
+                                                        <span>Add To Cart</span></button> -->
+                                                     
+                                                   
+                                                    
+                                                </form>
+                                                   
+                                                    <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#{{i.id}}"></a></div>
+                                                </div>
+                                                </div>
+                                                </div>
+
+                                                <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                    <ul class="list-options size-swatch">
+                                                        <li><span>{{i.Product_Size.all|join:","}}</span></li>
+                                                        <!-- <li><span>s</span></li>
+                                                        <li><span>m</span></li>
+                                                        <li><span>l</span></li>
+                                                        <li><span>xl</span></li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                {% endfor %}
+                            </div>
+                               
+                            <div class="loader-wrap">
+                                <div class="dots">
+                                    <div class="dot one"></div>
+                                    <div class="dot two"></div>
+                                    <div class="dot three"></div>
+                                </div>
+                            </div>
+                           
+
+                            <div class="show-more d-flex mt-4 mt-md-6 justify-content-center align-items-start">
+                                <ul class="pagination mt-0">
+                                    
+                                   
+                                    {% if page_obj %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <!-- << PREVIOUS PART -->
+            <!-- << Disable 'Previous' page button if you are at the 1st page -->
+            {% if not page_obj.has_previous %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="{{ profiles_1st_page_url }}" tabindex="-1" aria-label="Previous">
+
+            <!-- << If you are at the 2nd page,
+            'Previous' page button will get '/profiles/' url instead of '/profiles/?page=1' -->
+            {% elif page_obj.previous_page_number == 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ profiles_1st_page_url }}" aria-label="Previous">
+
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+            {% endif %}
+
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+
+            <!-- PAGES PART -->
+            {% for num in page_obj.paginator.page_range %}
+                <!-- Active page -->
+                {% if num == page_obj.number %}
+                    <li class="page-item active">
+                        <a class="page-link" href="{{ profiles_1st_page_url }}">{{ num }}<span class="sr-only">(current)</span></a>
+                    </li>
+
+                {% else %}
+                    <li class="page-item">
+                        <!-- For the 1st page we do not use ?page=1 -->
+                        {% if num == 1 %}
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+
+                        {% else %}
+                            <!-- Show current page and +-3 pages -->
+                            {% if num|add:"-3" <= page_obj.number and page_obj.number <= num|add:"3" %}
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+
+                            <!-- Shows every 10th page and the last page -->
+                            {% elif num|divisibleby:"10" or num == page_obj.paginator.num_pages %}
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+
+                        {% endif %}
+                    </li>
+                {% endif %}
+
+            {% endfor %}
+
+            <!-- >> NEXT PART -->
+            {% if not page_obj.has_next %}
+                <!-- << Disable 'Next' page button if you are at the last page -->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-label="Next">
+
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+            {% endif %}
+
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+
+        </ul>
+    </nav>
+{% endif %}
+                                </ul>
+                            </div>
+
+
+                            
+                        </div>
+                    </div>
+                    <!-- /Center column -->
+                </div>
+                <!-- /Two columns -->
+            </div>
+        </div>
+    </div>
+    
+    {% for i in page_obj %}
+    
+    <a class="back-to-top js-back-to-top compensate-for-scrollbar" href="#" title="Scroll To Top"><i class="icon icon-angle-up"></i></a>
+   
+    
+    <div class="modal--quickview" id="{{i.id}}" style="display: none;">
+        <div class="modal-header">
+            <div class="modal-header-title">Quick View</div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="prd-block" id="prdGalleryModal">
+                   
+                    <div class="prd-block_info">
+                        <div class="prd-block_info-row info-row-1 mb-md-1">
+                            <div class="info-row-col-1">
+                                <h1 class="prd-block_title">{{i.Product_Name}}</h1>
+                            </div>
+                            <div class="info-row-col-2">
+                                <!-- <div class="product-sku">SKU: <span>#0005</span></div> -->
+                                <div class="prd-block__labels"><span class="prd-label--sale">SALE</span> <span class="prd-label--new">NEW</span></div>
+                                <div class="prd-block_link"><a href="#" class="icon-heart-1"></a></div>
+                            </div>
+                        </div>
+                        <div class="prd-block_info-row info-row-2">
+                            <form action="#">
+                                <div class="info-row-col-3">
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">{{i.Discount_Price}}</span> <span class="prd-block_price--old">{{i.Price}}</span></div>
+                                </div>
+                                <div class="info-row-col-4">
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">{{i.Discount_Price}}</span> <span class="prd-block_price--old">{{i.Price}}</span></div>
+                                    <div class="prd-block_qty"><span class="option-label">Qty:</span>
+                                        <div class="qty qty-changer qty-changer--lg">
+                                            <fieldset><input type="button" value="&#8210;" class="decrease"> <input type="text" class="qty-input" value="2" data-min="0" data-max="10"> <input type="button" value="+" class="increase"></fieldset>
+                                        </div>
+                                    </div>
+                                    {% comment %} <div class="prd-block_options">
+                                        <div class="form-group select-wrapper-sm"><select class="form-control" tabindex="0">
+                                                <option value="">36 / silver &#8377;34.00</option>
+                                                <option value="">38 / silver &#8377;34.00</option>
+                                                <option value="">36 / gold &#8377;45.00</option>
+                                                <option value="">38 / gold &#8377;45.00</option>
+                                            </select></div>
+                                    </div> {% endcomment %}
+                                    <div class="prd-block_actions">
+                                        <div class="btn-wrap"><button class="btn btn--add-to-cart-sm"><i class="icon icon-handbag"></i><span>Add to cart</span></button></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                
+                    <div class="clearfix"></div>
+                    <div class="prd-block_info js-prd-m-holder"></div><!-- Product Gallery -->
+                    <div class="product-previews-wrapper">
+                        <div class="product-quickview-carousel slick-arrows-aside-simple js-product-quickview-carousel">
+                            <div><a href="images/products/large/product-01.jpg" data-fancybox="gallery"><img src="{{i.Image.url}}" alt=""></a></div>
+                            {% for j in Image_Videos %}
+                           
+                            {% ifequal j.Image_Product_id i.id %}
+                            <div><a href="images/products/large/product-01-2.jpg" data-fancybox="gallery"><img src="{{j.Image.url}}" alt=""></a></div>
+                            <!-- <div><a href="images/products/large/product-01-3.jpg" data-fancybox="gallery"><img src="images/products/product-01-3.jpg" alt=""></a></div>
+                            <div><a href="images/products/large/product-01-4.jpg" data-fancybox="gallery"><img src="images/products/product-01-4.jpg" alt=""></a></div>
+                            <div><a href="images/products/large/product-01-5.jpg" data-fancybox="gallery"><img src="images/products/product-01-5.jpg" alt=""></a></div> -->
+                            {% endifequal %}
+                            {% endfor %}
+                        </div>
+                        <div class="gdw-loader"></div>
+                    </div>
+                    <!-- /Product Gallery -->
+                    {% for j in ProductDescription %}
+                    
+                   {% ifequal j.Product_id i.id %}
+                  
+                    
+                    
+                    <div class="mt-3 mt-md-4">
+                        
+                       
+                        <h2>Description</h2>
+                        <p>{{j.Product_Description}}</p>
+                     
+                        <div class="table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>Manufacture</td>
+                                        <td><b>{{j.Manufacturing}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SAMPLES</td>
+                                        <td><b>{{j.Samples}}</b></td>
+                                   
+                                    </tr>
+                                    <tr>
+                                        <td>PROOF</td>
+                                        <td><b>{{j.Proof}}</b></td>
+                                      
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>MATRIAL_DETAILS</td>
+                                        <td><b>{{j.Matrial_detail}}</b></td>
+                                       
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>WEIGHT</td>
+                                        <td><b>{{j.Weight}}</b></td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                         
+                        </div>
+                    </div>
+                    {% endifequal %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+         
+    </div>
+    
+    {% endfor %}       
+    
+    <div id="modalWishlistAdd" class="modal-info modal--success" style="display: none;">
+        <div class="modal-text"><i class="icon icon-heart-fill modal-icon-info"></i><span>Product added to wishlist</span></div>
+    </div>
+    <div id="modalWishlistRemove" class="modal-info modal--error" style="display: none;">
+        <div class="modal-text"><i class="icon icon-heart modal-icon-info"></i><span>Product removed from wishlist</span></div>
+    </div>
+    <div id="modalCheckOut" class="modal--checkout" style="display: none;">
+        <div class="modal-header">
+            <div class="modal-header-title"><i class="icon icon-check-box"></i><span>Product added to cart successfully!</span></div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modalchk-prd">
+                    <div class="row h-font">
+                        <div class="modalchk-prd-image col"><a href="product.html"><img src="images/products/product-01.jpg" alt="Glamor shoes"></a></div>
+                        <div class="modalchk-prd-info col">
+                            <h2 class="modalchk-title"><a href="product.html">Glamor shoes</a></h2>
+                            <div class="modalchk-price">&#8377; 34.00</div>
+                            <div class="prd-options"><span class="label-options">Sizes:</span><span class="prd-options-val">xs</span></div>
+                            <div class="prd-options"><span class="label-options">Qty:</span><span class="prd-options-val">1</span></div>
+                            <div class="prd-options"><span class="label-options">Color:</span><span class="prd-options-val">silver</span></div>
+                            <div class="shop-features-modal d-none d-sm-block"><a href="#" class="shop-feature">
+                                    <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                                    <div class="shop-feature-text">
+                                        <div class="text1">Delivery</div>
+                                        <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                    </div>
+                                </a></div>
+                        </div>
+                        <div class="shop-features-modal d-sm-none"><a href="#" class="shop-feature">
+                                <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                                <div class="shop-feature-text">
+                                    <div class="text1">Delivery</div>
+                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                </div>
+                            </a></div>
+                        <div class="modalchk-prd-actions col">
+                            <h3 class="modalchk-title">There is <span class="custom-color">3</span> items in your cart</h3>
+                            <div class="prd-options"><span class="label-options">Total:</span><span class="modalchk-total-price">&#8377; 600.00</span></div>
+                            <div class="modalchk-custom"><img src="images/payment/guaranteed.png" alt="Guaranteed"></div>
+                            <div class="modalchk-btns-wrap"><a href="checkout.html" class="btn">proceed to checkout</a> <a href="#" class="btn btn--alt" data-fancybox-close>continue shopping</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  {% endblock %}

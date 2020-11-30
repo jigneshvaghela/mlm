@@ -1,0 +1,857 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style>
+.like {
+  padding-right: 6px;
+  color: #00000030;
+  font-size: 1.6em;
+  padding-top: 5px;
+  animation: like 0.5s linear;
+}
+@keyframes like {
+  0%{
+    transform: scale(1.7);
+  }
+  40%{
+    transform: scale(1);
+  }
+  48%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.heart {
+  color: #FF0000;
+  animation: heart 0.5s linear;
+}
+
+@keyframes heart {
+  0%{
+    transform: scale(1.7);
+  }
+  40%{
+    transform: scale(1);
+  }
+  48%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.middle {
+  padding-top: 14px;
+}
+
+</style>   
+
+
+
+
+
+
+<div class="page-content">
+    <div class="holder mt-0">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li><span>Category</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="holder mt-0">
+        <div class="container">
+            <div class="row">
+                <!-- Left column -->
+                <div class="col-lg-3 aside aside--left fixed-col js-filter-col">
+                    <div class="fixed-col_container">
+                        <div class="filter-close">CLOSE</div>
+                        <div class="sidebar-block sidebar-block--mobile d-block d-lg-none">
+                            <div class="d-flex align-items-center">
+                               
+                            </div>
+                        </div>
+                      
+                            
+                        {% ifequal type 'cloth' %}
+                            <form action="{% url 'accounts:Filter_Product' %}">
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Categories</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                    <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                      
+                                        {% for l in CategloryFS %}
+                                        
+                                        <li><div class="clearfix"><input id="{{l.id}}" name="Categlory" value={{l.id}} type="checkbox"> <label for="{{l.id}}">{{l.CategloryName}}</label></div></li>
+                                        {% endfor %}
+
+                                      
+                                    </ul>
+                               
+                                </div>
+                               
+                            </div>
+                           
+                           
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Colors</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    
+                                    <ul class="color-list two-column">
+                                                                          
+                                        <ul class="submenu-list">
+                                            {% for l in Colorss %}
+                                            <li>
+                                                <div class="clearfix"><input id="{{l.id}}" name="Color" value={{l.id}} name="{{l.ColorsName}}" type="checkbox"> 
+                                                
+                                                <label for="{{l.id}}" style="background-color:{{l.ColorsName}}; padding:12px;"></label></div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Brands</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                     
+                                    <ul class="category-list">
+                                        {% for l in TypeFS %}
+
+                                        <li><div class="clearfix"><input id="{{l.id}}" value={{l.id}} name="Brand" type="checkbox"> <label for="{{l.id}}">{{l.BrandsName}}</label></div></li>
+                                        {% endfor %}
+                                       
+                                    </ul>
+                                   
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Price</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                        <li><div class="clearfix">
+                                            <input id="0-200" value="0-200"  name="price1" type="checkbox"> <label for="0-200">0-200</label>
+                                            <input id="200-1000" value="200-1000"  name="price2" type="checkbox"> <label for="200-1000">200-1000</label>
+                                            <input id="1000-5000" value="1000-5000"  name="price3" type="checkbox"> <label for="1000-5000">1000-5000</label>
+                                            <input id="5000-100000" value="5000-100000" name="price4" type="checkbox"> <label for="5000-100000">5000-100000</label>
+                                        </div>
+                                    </li>
+                                        <!-- <li type="checkbox"><a href="#">0-200</a></li>
+                                        <li><a href="#">200-1000</a></li>
+                                        <li><a href="#">1000-5000</a></li>
+                                        <li><a href="#">5000-1000</a></li>
+                                        <li><a href="#">Above 1000</a></li> -->
+                                        <!-- <li><a href="#">Under 100</a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Product</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="size-list two-column" data-sort=''>
+                                        {% for l in ParentFalse %}
+                                        
+                                        <li><div class="clearfix"><input id="{{l.id}}" name="Product" value={{l.id}}  type="checkbox"> <label for="{{l.id}}">{{l.Name}}</label></div></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Size</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                               
+                                <div class="sidebar-block_content">
+                                    
+                                    <ul class="size-list" data-sort="">
+                                        {% for l in Sizes %}
+                                        <li><div class="clearfix"><input id="{{l.id}}" value={{l.id}} name="Size" type="checkbox"> <label for="{{l.id}}">{{l.Product_Size}}</label></div></li>
+                                        {% endfor %}                                    
+                                    </ul>
+                                    
+                                </div>
+                               
+                            </div>
+                            
+                      
+                        <div class="sidebar-block filter-group-block collapsed">
+                        <button type="submit"  class="btn" value="submit">Filter it</button>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    </form> 
+                    {% endifequal %}
+                    
+
+
+                    {% ifequal type 'gift' %}
+                            <form action="{% url 'gift:Filter_Product' %}">
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Categories</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                    <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                      
+                                        {% for l in CategloryFS %}
+                                        
+                                        <li><div class="clearfix"><input id="{{l.id}}" name="Categlory" value={{l.id}} type="checkbox"> <label for="{{l.id}}">{{l.CategloryName}}</label></div></li>
+                                        {% endfor %}
+
+                                      
+                                    </ul>
+                               
+                                </div>
+                               
+                            </div>
+                           
+                           
+                           
+                            
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Types</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                     
+                                    <ul class="category-list">
+                                        {% for l in TypeFS %}
+
+                                        <li><div class="clearfix"><input id="{{l.id}}" value={{l.id}} name="Type" type="checkbox"> <label for="{{l.id}}">{{l.BrandsName}}</label></div></li>
+                                        {% endfor %}
+                                       
+                                    </ul>
+                                   
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Price</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                        <li><div class="clearfix">
+                                            <input id="0-200" value="0-200"  name="price1" type="checkbox"> <label for="0-200">0-200</label>
+                                            <input id="200-1000" value="200-1000"  name="price2" type="checkbox"> <label for="200-1000">200-1000</label>
+                                            <input id="1000-5000" value="1000-5000"  name="price3" type="checkbox"> <label for="1000-5000">1000-5000</label>
+                                            <input id="5000-100000" value="5000-100000" name="price4" type="checkbox"> <label for="5000-100000">5000-100000</label>
+                                        </div>
+                                    </li>
+                                        <!-- <li type="checkbox"><a href="#">0-200</a></li>
+                                        <li><a href="#">200-1000</a></li>
+                                        <li><a href="#">1000-5000</a></li>
+                                        <li><a href="#">5000-1000</a></li>
+                                        <li><a href="#">Above 1000</a></li> -->
+                                        <!-- <li><a href="#">Under 100</a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Product</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="size-list two-column" data-sort=''>
+                                        {% for l in ParentFalse %}
+                                        
+                                        <li><div class="clearfix"><input id="{{l.id}}" name="Product" value={{l.id}}  type="checkbox"> <label for="{{l.id}}">{{l.Name}}</label></div></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div> -->
+                            <!-- <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Size</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                               
+                                <div class="sidebar-block_content">
+                                    
+                                    <ul class="size-list" data-sort="">
+                                        {% for l in Sizes %}
+                                        <li><div class="clearfix"><input id="{{l.id}}" value={{l.id}} name="Size" type="checkbox"> <label for="{{l.id}}">{{l.Product_Size}}</label></div></li>
+                                        {% endfor %}                                    
+                                    </ul>
+                                    
+                                </div>
+                               
+                            </div> -->
+                            
+
+
+
+
+                           
+                        <button type="submit"  class="btn" value="submit">Filter it</button>
+                    </div>
+        </div>
+                    </form> 
+                    {% endifequal %}
+                    
+                    {% ifequal type 'medici' %}
+                   
+                            <form action="{% url 'medicines:Filter_Product' %}">
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Categories</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                    <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                      
+                                        {% for l in CategloryFS %}
+                                        
+                                        <li><div class="clearfix"><input id="{{l.id}}" name="Categlory" value={{l.id}} type="checkbox"> <label for="{{l.id}}">{{l.CategloryName}}</label></div></li>
+                                        {% endfor %}
+
+                                      
+                                    </ul>
+                               
+                                </div>
+                               
+                            </div>
+                           
+                           
+                           
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>SubCategory</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                     
+                                    <ul class="category-list">
+                                        {% for l in TypeFS %}
+
+                                        <li><div class="clearfix"><input id="{{l.id}}" value={{l.id}} name="SubCategory" type="checkbox"> <label for="{{l.id}}">{{l.SubCategloryName}}</label></div></li>
+                                        {% endfor %}
+                                       
+                                    </ul>
+                                   
+                                </div>
+                            </div>
+                            <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Price</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="category-list">
+                                        <li><div class="clearfix">
+                                            <input id="0-200" value="0-200"  name="price1" type="checkbox"> <label for="0-200">0-200</label>
+                                            <input id="200-1000" value="200-1000"  name="price2" type="checkbox"> <label for="200-1000">200-1000</label>
+                                            <input id="1000-5000" value="1000-5000"  name="price3" type="checkbox"> <label for="1000-5000">1000-5000</label>
+                                            <input id="5000-100000" value="5000-100000" name="price4" type="checkbox"> <label for="5000-100000">5000-100000</label>
+                                        </div>
+                                    </li>
+                                        <!-- <li type="checkbox"><a href="#">0-200</a></li>
+                                        <li><a href="#">200-1000</a></li>
+                                        <li><a href="#">1000-5000</a></li>
+                                        <li><a href="#">5000-1000</a></li>
+                                        <li><a href="#">Above 1000</a></li> -->
+                                        <!-- <li><a href="#">Under 100</a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            
+                            
+
+
+
+
+                            {% comment %} <div class="sidebar-block filter-group-block open">
+                                <div class="sidebar-block_title"><span>Offer</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="banners-list">
+                                        <li><a href="#" style="background-image: url(images/pages/offer-banner-01.jpg)"><span>new</span></a></li>
+                                        <li class="active"><a href="#" style="background-image: url(images/pages/offer-banner-02.jpg)"><span>sale</span></a></li>
+                                    </ul>
+                                </div>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="sidebar-block filter-group-block collapsed">
+                                <div class="sidebar-block_title"><span>Popular tags</span>
+                                    <div class="toggle-arrow"></div>
+                                </div>
+                                <div class="sidebar-block_content">
+                                    <ul class="tags-list">
+                                        <li class="active"><a href="#">Jeans</a></li>
+                                        <li><a href="#">St.Valentine’s gift</a></li>
+                                        <li><a href="#">Sunglasses</a></li>
+                                        <li><a href="#">Discount</a></li>
+                                        <li><a href="#">Maxi dress</a></li>
+                                    </ul>
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+                        <button type="submit"  class="btn" value="submit">Filter it</button>
+                    </div>
+                    
+                    </form> 
+                    {% endifequal %}
+                    
+                   
+                
+               
+                
+                    <!-- /Left column -->
+                    <!-- Center column -->
+                    <div class="col-lg aside">
+                        <div class="prd-grid-wrap">
+                            <!-- Filter Row -->
+                            <div class="filter-row invisible">
+                                <div class="row row-1 d-lg-none align-items-center">
+                                    <div class="col">
+                                        <h1 class="category-title">WOMEN’S</h1>
+                                    </div>
+                                    <div class="col-auto ml-auto">
+                                        <div class="view-in-row d-md-none"><span data-view="data-to-show-sm-1"><i class="icon icon-view-1"></i></span> <span data-view="data-to-show-sm-2"><i class="icon icon-view-2"></i></span></div>
+                                        <div class="view-in-row d-none d-md-inline"><span data-view="data-to-show-md-2"><i class="icon icon-view-2"></i></span> <span data-view="data-to-show-md-3"><i class="icon icon-view-3"></i></span></div>
+                                    </div>
+                                </div>
+                               
+                                <div class="row row-2">
+                                    <div class="col-left d-flex align-items-center">
+                                        
+                                        <div class="filter-button d-lg-none"><a href="#" class="fixed-col-toggle">FILTER</a></div>
+                                    </div>
+                                    {% comment %} <div class="col col-center d-none d-lg-flex align-items-center justify-content-center">
+                                        <div class="view-label">View:</div>
+                                        <div class="view-in-row"><span data-view="data-to-show-3"><i class="icon icon-view-3"></i></span> <span data-view="data-to-show-4"><i class="icon icon-view-4"></i></span></div>
+                                    </div> {% endcomment %}
+                                    <div class="col-right ml-auto d-none d-lg-flex align-items-center">
+                                        <div class="items-count">{{my_products1}} item(s)</div>
+                                        {% comment %} <div class="show-count-holder">
+                                            <div class="select-label">Show:</div>
+                                            <div class="select-wrapper-sm"><select class="form-control input-sm">
+                                                
+                                                    <option value="featured">12</option>
+                                                    <option value="rating">36</option>
+                                                    <option value="price">100</option>
+                                                </select></div>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                           
+                            
+                            <!-- /Filter Row -->
+                            <!-- Products Grid -->
+                            <div class="prd-grid product-listing data-to-show-3 data-to-show-md-3 data-to-show-sm-2 js-category-grid">
+                                {% for i in page_obj %}
+                                
+                                <div class="prd prd-has-loader prd-new prd-popular">
+                                    <div class="prd-inside">
+                                        
+                                        <div class="prd-img-area"><a href="{% url 'accounts:product1' i.id %}" class="prd-img"><img class="img_hight" src="{{i.Image.url}}" data-srcset="{{i.Image.url}}" alt="Glamor shoes"></a>
+                                            
+                                            {% if i.New_Arrivals == True %}
+                                        
+                                            <div class="label-new">NEW</div>
+                                            
+                                            {% elif i.Availability == 0 %}
+                                                <div class="label-outstock">OUT OF STOCK</div>
+                                                
+                                            {% endif %}
+                                            <form method="POST">
+                                                {% csrf_token %}
+                                           {% if i.id in wishlisted_list %}
+                                            <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                            
+                                            {% else %}
+                                            <a href="#" class="label-wishlist icon-heart js-label-wishlist" attr_id="{{i.id}}" action_url="{% url 'accounts:add_to_wishlist' %}"></a>
+                                            {% endif %}
+                                                </form>
+                                            <ul class="list-options color-swatch prd-hidemobile">
+                                                <li data-image="{{i.Image.url}}"><a href="{% url 'accounts:product1' i.id %}" class="js-color-toggle"><img src="{{i.Image.url}}" class="lazyload" alt="Color Name"></a></li>
+                                                <li data-image="{{i.Image.url}}"><a href="{% url 'accounts:product1' i.id %}" class="js-color-toggle"><img src="{{i.Image.url}}" data-srcset="" class="lazyload" alt="Color Name"></a></li>
+                                            </ul>
+                                            <div class="gdw-loader"></div>
+                                        </div>
+                                        <div class="prd-info">
+                                            <div class="prd-tag prd-hidemobile" id="chat_container"><a href="{% url 'accounts:product1' i.id %}">{{i.Product_Name}}</a></div>
+                                            <h2 class="prd-title"><a href="">{{i.Product_Description}}</a></h2>
+                                            <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                            <div class="prd-price">
+                                                <div class="price-new">&#8377; {{i.Price}}</div>
+                                              
+                                                </div>
+                                               <div class="prd-price">
+                                                <form action="https://api.whatsapp.com/send" target="_blank">
+                                                    <input type="hidden" name="text" value="https://localhost:8000/referralcode/referralcode={{user_.referral_code}}">
+                                                   
+                                                    
+                                            
+
+                                                    <button style="height:38px; background-color:#1d1d1d;color:white;
+                                                    border: none; display: inline-block;cursor: pointer; ">                                                                                                  
+                                                   
+                                                    <i class="fa fa-whatsapp" style="font-size:30px;color:#fff;
+                                                    background:linear-gradient(#25d366,#25d366)10px /13px 13px no-repeat,
+                                                    radial-gradient(#25d366 59%,transparent 0);"></i>
+                                                    Share
+                                                    <!-- <input type="submit" class="btn" value="share"> -->
+                                                    </button>
+                                                </form>
+                                                        
+                                               
+                                                            <p class="card-text" id="Product_idpr{{i.id}}" hidden>{{i.id}}</p>
+                                                            <h5 class="card-title" hidden id="Product_Namepr{{i.id}}">{{i.Product_Name}}</h5>
+                                                            <p class="card-text" id="Product_imgpr{{i.id}}" hidden>{{i.Image.url}}</p>
+                                                            <h6 class="card-title" hidden>Price: <span id="Pricepr{{i.id}}">{{i.Price}}</span></h6>
+                                                            <!-- <h6 class="card-title" hidden>Size: <span id="Product_Sizepr{{i.id}}">{{i.Product_Size}}</span></h6> -->
+                                                            <h6 class="card-title" hidden>Courier charge: <span id="Courierpr{{i.id}}">{{i.Courier_charge}}</span></h6>
+                                                            <span id="div{{i.id}}" class="divpr">
+                                                                {% if i.Availability == 0 %}
+                                                                <button class="btn btn-primary cart" disabled>AddTo Cart</button>
+                                                                {% else %}
+                                                                <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button>
+                                                                {% endif %}
+                                                                <!-- <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button> -->
+                                                            </span>
+                                                  
+                                                  
+
+                                                <input type='text' hidden name='Name1' value="{{user_.referral_code}}" hidden>
+                                               
+                                                 </div>            
+                                               
+                                                
+                                           
+                                         
+                                            
+                                            <!-- <button class="add_item_button" product_id="{{ i.id }}">Add</button> -->
+                                            
+
+
+                                            <div class="prd-hover">
+                                                <div class="prd-action">
+                                                    
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                    
+                                                        <!-- <input type="hidden">  -->
+                                                    <!-- <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i>
+                                                        <span>Add To Cart</span></button> -->
+                                                     
+                                                   
+                                                    
+                                                </form>
+                                                   
+                                                    <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#{{i.id}}"></a></div>
+                                                </div>
+                                                </div>
+                                                </div>
+
+                                                <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                    <ul class="list-options size-swatch">
+                                                        <li><span>{{i.Product_Size.all|join:","}}</span></li>
+                                                        <!-- <li><span>s</span></li>
+                                                        <li><span>m</span></li>
+                                                        <li><span>l</span></li>
+                                                        <li><span>xl</span></li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                {% endfor %}
+                            </div>
+                               
+                            <div class="loader-wrap">
+                                <div class="dots">
+                                    <div class="dot one"></div>
+                                    <div class="dot two"></div>
+                                    <div class="dot three"></div>
+                                </div>
+                            </div>
+                            <!-- /Products Grid -->
+
+
+                            <!-- <div class="pagination">
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                        <a href="?page=1">&laquo; first</a>
+                                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                    {% endif %}
+                            
+                                    <span class="current">
+                                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                    </span>
+                            
+                                    {% if page_obj.has_next %}
+                                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </div> -->
+
+                            <div class="show-more d-flex mt-4 mt-md-6 justify-content-center align-items-start">
+                                <ul class="pagination mt-0">
+                                    
+                                   
+                                    {% if page_obj %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <!-- << PREVIOUS PART -->
+            <!-- << Disable 'Previous' page button if you are at the 1st page -->
+            {% if not page_obj.has_previous %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="{{ profiles_1st_page_url }}" tabindex="-1" aria-label="Previous">
+
+            <!-- << If you are at the 2nd page,
+            'Previous' page button will get '/profiles/' url instead of '/profiles/?page=1' -->
+            {% elif page_obj.previous_page_number == 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ profiles_1st_page_url }}" aria-label="Previous">
+
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+            {% endif %}
+
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+
+            <!-- PAGES PART -->
+            {% for num in page_obj.paginator.page_range %}
+                <!-- Active page -->
+                {% if num == page_obj.number %}
+                    <li class="page-item active">
+                        <a class="page-link" href="{{ profiles_1st_page_url }}">{{ num }}<span class="sr-only">(current)</span></a>
+                    </li>
+
+                {% else %}
+                    <li class="page-item">
+                        <!-- For the 1st page we do not use ?page=1 -->
+                        {% if num == 1 %}
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+
+                        {% else %}
+                            <!-- Show current page and +-3 pages -->
+                            {% if num|add:"-3" <= page_obj.number and page_obj.number <= num|add:"3" %}
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+
+                            <!-- Shows every 10th page and the last page -->
+                            {% elif num|divisibleby:"10" or num == page_obj.paginator.num_pages %}
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+
+                        {% endif %}
+                    </li>
+                {% endif %}
+
+            {% endfor %}
+
+            <!-- >> NEXT PART -->
+            {% if not page_obj.has_next %}
+                <!-- << Disable 'Next' page button if you are at the last page -->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-label="Next">
+
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+            {% endif %}
+
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+
+        </ul>
+    </nav>
+{% endif %}
+                                </ul>
+                            </div>
+
+
+                            
+                        </div>
+                    </div>
+                    <!-- /Center column -->
+                </div>
+                <!-- /Two columns -->
+            </div>
+        </div>
+    </div>
+    
+    {% for i in page_obj %}
+    
+    <a class="back-to-top js-back-to-top compensate-for-scrollbar" href="#" title="Scroll To Top"><i class="icon icon-angle-up"></i></a>
+   
+    
+    <div class="modal--quickview" id="{{i.id}}" style="display: none;">
+        <div class="modal-header">
+            <div class="modal-header-title">Quick View</div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="prd-block" id="prdGalleryModal">
+                   
+                    <div class="prd-block_info">
+                        <div class="prd-block_info-row info-row-1 mb-md-1">
+                            <div class="info-row-col-1">
+                                <h1 class="prd-block_title">{{i.Product_Name}}</h1>
+                            </div>
+                            <div class="info-row-col-2">
+                                <!-- <div class="product-sku">SKU: <span>#0005</span></div> -->
+                                <div class="prd-block__labels"><span class="prd-label--sale">SALE</span> <span class="prd-label--new">NEW</span></div>
+                                <div class="prd-block_link"><a href="#" class="icon-heart-1"></a></div>
+                            </div>
+                        </div>
+                        <div class="prd-block_info-row info-row-2">
+                              
+                                <div class="info-row-col-3">
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">{{i.Discount_Price}}</span> <span class="prd-block_price--old">{{i.Price}}</span></div>
+                                </div>
+                                <div class="info-row-col-4">
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">{{i.Discount_Price}}</span> <span class="prd-block_price--old">{{i.Price}}</span></div>
+                                    
+                                    
+                                    
+                                </div>
+                         
+                        </div>
+                    </div>
+                
+                    <div class="clearfix"></div>
+                    <div class="prd-block_info js-prd-m-holder"></div><!-- Product Gallery -->
+                    <div class="product-previews-wrapper">
+                        <div class="product-quickview-carousel slick-arrows-aside-simple js-product-quickview-carousel">
+                            <div><a href="{{i.Image.url}}" data-fancybox="gallery"><img src="{{i.Image.url}}" alt=""></a></div>
+                            {% for j in Image_Videos %}
+                           
+                            {% ifequal j.Image_Product_id i.id %}
+                            <div><a href="{{j.Image.url}}" data-fancybox="gallery"><img src="{{j.Image.url}}" alt=""></a></div>
+                            {% endifequal %}
+                            {% endfor %}
+                        </div>
+                        <div class="gdw-loader"></div>
+                    </div>
+                    <!-- /Product Gallery -->
+                    {% for j in ProductDescription %}
+                    
+                   {% ifequal j.Product_id i.id %}
+                  
+                    
+                    
+                    <div class="mt-3 mt-md-4">
+                        
+                       
+                        <h2>Description</h2>
+                        <p>{{j.Product_Description}}</p>
+                     
+                        <div class="table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>Manufacture</td>
+                                        <td><b>{{j.Manufacturing}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SAMPLES</td>
+                                        <td><b>{{j.Samples}}</b></td>
+                                   
+                                    </tr>
+                                    <tr>
+                                        <td>PROOF</td>
+                                        <td><b>{{j.Proof}}</b></td>
+                                      
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>MATRIAL_DETAILS</td>
+                                        <td><b>{{j.Matrial_detail}}</b></td>
+                                       
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>WEIGHT</td>
+                                        <td><b>{{j.Weight}}</b></td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                         
+                        </div>
+                    </div>
+                    {% endifequal %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+         
+    </div>
+    
+    {% endfor %}       
+    
+    <div id="modalWishlistAdd" class="modal-info modal--success" style="display: none;">
+        <div class="modal-text"><i class="icon icon-heart-fill modal-icon-info"></i><span>Product added to wishlist</span></div>
+    </div>
+    <div id="modalWishlistRemove" class="modal-info modal--error" style="display: none;">
+        <div class="modal-text"><i class="icon icon-heart modal-icon-info"></i><span>Product removed from wishlist</span></div>
+    </div>
+    <div id="modalCheckOut" class="modal--checkout" style="display: none;">
+        <div class="modal-header">
+            <div class="modal-header-title"><i class="icon icon-check-box"></i><span>Product added to cart successfully!</span></div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modalchk-prd">
+                    <div class="row h-font">
+                        <div class="modalchk-prd-image col"><a href="product.html"><img src="images/products/product-01.jpg" alt="Glamor shoes"></a></div>
+                        <div class="modalchk-prd-info col">
+                            <h2 class="modalchk-title"><a href="product.html">Glamor shoes</a></h2>
+                            <div class="modalchk-price">&#8377; 34.00</div>
+                            <div class="prd-options"><span class="label-options">Sizes:</span><span class="prd-options-val">xs</span></div>
+                            <div class="prd-options"><span class="label-options">Qty:</span><span class="prd-options-val">1</span></div>
+                            <div class="prd-options"><span class="label-options">Color:</span><span class="prd-options-val">silver</span></div>
+                            <div class="shop-features-modal d-none d-sm-block"><a href="#" class="shop-feature">
+                                    <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                                    <div class="shop-feature-text">
+                                        <div class="text1">Delivery</div>
+                                        <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                    </div>
+                                </a></div>
+                        </div>
+                        <div class="shop-features-modal d-sm-none"><a href="#" class="shop-feature">
+                                <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                                <div class="shop-feature-text">
+                                    <div class="text1">Delivery</div>
+                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                </div>
+                            </a></div>
+                        <div class="modalchk-prd-actions col">
+                            <h3 class="modalchk-title">There is <span class="custom-color">3</span> items in your cart</h3>
+                            <div class="prd-options"><span class="label-options">Total:</span><span class="modalchk-total-price">&#8377; 600.00</span></div>
+                            <div class="modalchk-custom"><img src="images/payment/guaranteed.png" alt="Guaranteed"></div>
+                            <div class="modalchk-btns-wrap"><a href="checkout.html" class="btn">proceed to checkout</a> <a href="#" class="btn btn--alt" data-fancybox-close>continue shopping</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  {% endblock %}

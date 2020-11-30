@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Gallery</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0 global-width">
+            <div class="container">
+                <!-- Page Title -->
+                <div class="page-title text-center">
+                    <div class="title">
+                        <h1>GALLERY</h1>
+                    </div>
+                </div>
+                <!-- /Page Title -->
+                <ul class="filters js-filters-gallery">
+                    <li class="filters-label"><a href="#">All<span class="filters-label-count"></span></a></li>
+                    <li class="filters-label" data-filter=".category1"><a href="#">Bestseller<span class="filters-label-count"></span></a></li>
+                    <li class="filters-label" data-filter=".category2"><a href="#">Trend<span class="filters-label-count"></span></a></li>
+                    <li class="filters-label" data-filter=".category3"><a href="#">New<span class="filters-label-count"></span></a></li>
+                </ul>
+                <div class="gallery-wrapper">
+                    <div class="gallery gallery--style-2 js-gallery-isotope">
+                        <div class="gallery-item category3 category1">
+                            <div class="gallery-item-image"><img src="images/gallery/gallery-thumb-1.png" alt="">
+                                <div class="gallery-item-links"><a href="images/gallery/gallery-thumb-1.png" class="gallery-item-link" data-fancybox="gallery" data-caption="Lorem Ipsum Dolor"><i class="icon-search2"></i></a> <a href="#" class="gallery-item-link"><i class="icon-angle-right"></i></a></div>
+                            </div>
+                            <div class="gallery-item-caption">
+                                <h4 class="gallery-item-title">Mauris lacinia lectus</h4>
+                                <p class="gallery-item-category">Bestseller New</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item category2">
+                            <div class="gallery-item-image"><img src="images/gallery/gallery-thumb-2.png" alt="">
+                                <div class="gallery-item-links"><a href="images/gallery/gallery-thumb-2.png" class="gallery-item-link" data-fancybox="gallery" data-caption="Lorem Ipsum Dolor"><i class="icon-search2"></i></a> <a href="#" class="gallery-item-link"><i class="icon-angle-right"></i></a></div>
+                            </div>
+                            <div class="gallery-item-caption">
+                                <h4 class="gallery-item-title">Ipsum dolor sit</h4>
+                                <p class="gallery-item-category">Trend</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item category1">
+                            <div class="gallery-item-image"><img src="images/gallery/gallery-thumb-3.png" alt="">
+                                <div class="gallery-item-links"><a href="images/gallery/gallery-thumb-3.png" class="gallery-item-link" data-fancybox="gallery" data-caption="Lorem Ipsum Dolor"><i class="icon-search2"></i></a> <a href="#" class="gallery-item-link"><i class="icon-angle-right"></i></a></div>
+                            </div>
+                            <div class="gallery-item-caption">
+                                <h4 class="gallery-item-title">Consectetuer adipiscing</h4>
+                                <p class="gallery-item-category">Bestseller</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item category2 category3">
+                            <div class="gallery-item-image"><img src="images/gallery/gallery-thumb-4.png" alt="">
+                                <div class="gallery-item-links"><a href="images/gallery/gallery-thumb-4.png" class="gallery-item-link" data-fancybox="gallery" data-caption="Lorem Ipsum Dolor"><i class="icon-search2"></i></a> <a href="#" class="gallery-item-link"><i class="icon-angle-right"></i></a></div>
+                            </div>
+                            <div class="gallery-item-caption">
+                                <h4 class="gallery-item-title">Adipiscing elit donec</h4>
+                                <p class="gallery-item-category">Trend New</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item category2">
+                            <div class="gallery-item-image"><img src="images/gallery/gallery-thumb-5.png" alt="">
+                                <div class="gallery-item-links"><a href="images/gallery/gallery-thumb-5.png" class="gallery-item-link" data-fancybox="gallery" data-caption="Lorem Ipsum Dolor"><i class="icon-search2"></i></a> <a href="#" class="gallery-item-link"><i class="icon-angle-right"></i></a></div>
+                            </div>
+                            <div class="gallery-item-caption">
+                                <h4 class="gallery-item-title">Donec eros tellus</h4>
+                                <p class="gallery-item-category">Trend</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item category1">
+                            <div class="gallery-item-image"><img src="images/gallery/gallery-thumb-6.png" alt="">
+                                <div class="gallery-item-links"><a href="images/gallery/gallery-thumb-6.png" class="gallery-item-link" data-fancybox="gallery" data-caption="Lorem Ipsum Dolor"><i class="icon-search2"></i></a> <a href="#" class="gallery-item-link"><i class="icon-angle-right"></i></a></div>
+                            </div>
+                            <div class="gallery-item-caption">
+                                <h4 class="gallery-item-title">Sit amet donec</h4>
+                                <p class="gallery-item-category">Bestseller</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   {% endblock %}

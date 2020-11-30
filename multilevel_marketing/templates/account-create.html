@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+
+
+
+
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Create account</span></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 col-md-6">
+                        <h2 class="text-center">CREATE AN ACCOUNT</h2>
+                        <div class="form-wrapper">
+                            <p>To access your whishlist, address book and contact preferences and to take advantage of our speedy checkout, create an account with us now.</p>
+                            <form action="{% url 'accounts:account_create' %}" method='post'>
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><input type="text" name="first_name" class="form-control" placeholder="First name"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"><input type="text" name="last_name" class="form-control" placeholder="Last name"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group"><input type="text" name="username" class="form-control" placeholder="username"></div>
+                                <div class="form-group">
+                                    <input type="text" name="email"   pattern="^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$"  class="form-control" placeholder="E-mail" required>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <input type="text" name="phone" class="form-control" pattern="\+?\d[\d -]{8,12}\d" placeholder="phone number" required>
+                                    </div>
+                                  
+
+                                <div class="form-group">
+                                    <input type="password" id="xyz" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers"
+                                    required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  
+                                    name="password" class="form-control" placeholder="Password" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                                    if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);
+                                  "></div>
+                                
+                                <div class="form-group">
+                                    <input type="password" id="xyz" title="Please enter the same Password as above" 
+                                    required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" 
+                                    class="form-control" placeholder="Confirm Password" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                                  ">
+                                </div>
+
+                               
+                                <div class="clearfix">
+                                    <input id="checkbox1" name="checkbox1"  type="checkbox"/>
+                                     <label for="checkbox1">By registering your details you agree to our Terms and Conditions and privacy and cookie policy</label></div>
+                                     
+                                   
+                                <div class="text-center">
+                                    <input type="submit" id="create" class="btn"  value="create an account" disabled/></div>
+                                <div class="text-center"></div>
+                              
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     {% endblock %}

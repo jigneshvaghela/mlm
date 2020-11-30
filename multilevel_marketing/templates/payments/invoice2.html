@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Invoice Template | PrepBootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}" />
+
+    <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+   
+</head>
+<body>
+
+<div class="container">
+
+<div class="page-header">
+    <h1>Invoice</h1>
+</div>
+
+<!-- Simple Invoice - START -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-center">
+                <a href="{% url 'accounts:index' %}">
+                <i class="fa fa-home pull-left icon"></i></a>
+                <a href="{% url 'payment:account_history' %}">
+                <h4 style="float:right; margin-top: 9px;margin-bottom: 5px;">Order History</h4></a>
+                <h2>Invoice for Order {{payment.ORDERID}}</h2>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12 col-md-5 col-lg-5 pull-left">
+                    <div class="panel panel-default height">
+                        <div class="panel-heading">Billing Details</div>
+                        <div class="panel-body">
+                            <strong>{{request.user.first_name}} {{request.user.last_name}}:</strong><br>
+                            {% for k in orders %}
+                            {% if forloop.first %}
+                                {{k.Address}}</br>
+                                {{k.Landmark}}</br>
+                                {{k.city}}</br>
+                                {{k.country}}</br>
+                                {{k.state}}</br>
+                                <strong>{{k.zipcode}}</strong>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-7 col-lg-7">
+                    <div class="panel panel-default height">
+                        <div class="panel-heading">Payment Information</div>
+                        <div class="panel-body">
+                            <strong>BANK Name:</strong> {{payment.BANKNAME}}<br>
+                            <strong>Payment Mode</strong> {{payment.PAYMENTMODE}}<br>
+                            <strong>Transaction Id</strong> {{payment.TXNID}}<br>
+                            <strong>Currency</strong> {{payment.CURRENCY}}<br>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Item Name</strong></td>
+                                    <td class="text-center"><strong>Item Price</strong></td>
+                                    <td class="text-center"><strong>Courier Charge</strong></td>
+                                    <td class="text-center"><strong>Item Quantity</strong></td>
+                                    <td class="text-right"><strong>Total</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for j in Products %}
+                                {% for i in j %}
+                                {% for k in orders %}
+                                    {% ifequal k.product i.id %}
+                                <tr>
+                                    <td>{{i.Product_Name}}</td>
+                                    <td class="text-center">&#8377;{{i.Price}}</td>
+                                    <td class="text-center">&#8377;{{i.Courier_charge}}</td>
+                                    
+                                        <td class="text-center">{{k.quantity}}</td>
+                                        <td class="text-right">&#8377;{{k.subtotal}}</td>
+                                   
+                                    
+                                </tr>
+                                {% endifequal %}
+                                {% endfor %}
+                                {% endfor %}
+                                {% endfor %}
+                                {% for u,j in total3.items %}
+                                   
+                                    
+                                {% ifequal u payment.ORDERID %}
+                                    
+                                <tr>
+                                    <td class="highrow"></td>
+                                    <td class="highrow"></td>
+                                    <td class="highrow"></td>
+                                    <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                   
+                                    <td class="highrow text-right">&#8377;{{j}}</td>
+                                    
+                                </tr>
+                               
+                                <tr>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Total</strong></td>
+                                    <td class="emptyrow text-right">&#8377;{{j}}</td>
+                                </tr>
+                                {% endifequal %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .height {
+        min-height: 200px;
+    }
+    
+    .icon {
+        font-size: 47px;
+        color: #5CB85C;
+    }
+    
+    .iconbig {
+        font-size: 77px;
+        color: #5CB85C;
+    }
+    
+    .table > tbody > tr > .emptyrow {
+        border-top: none;
+    }
+    
+    .table > thead > tr > .emptyrow {
+        border-bottom: none;
+    }
+    
+    .table > tbody > tr > .highrow {
+        border-top: 3px solid;
+    }
+    </style>
+    
+<!-- Simple Invoice - END -->
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+
+
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Checkout</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <form method="POST" action="{% url 'payment:paytm' %}" >{% csrf_token %}
+            <input type="hidden" id='itemsJson1' name='itemsJson1'>
+        <div class="holder mt-0">
+            <div class="container">
+                <h1 class="text-center">Checkout page</h1>
+                <div class="clearfix"></div>
+                    <div class="row">
+                      
+                        <div class="col-md-4">
+                            
+                            <div class="card card--grey">
+                                
+                                <div class="card-body">
+                                    <h2>SHIPPING ADDRESS</h2>
+                                    
+                                    <!-- <p><a href="login.html">Login</a> or <a href="#">Register</a> for faster payment.</p> -->
+                                    
+                                                
+                                    <div class="clearfix">
+                                     
+                                        <input id="formcheckoutCheckbox1"  name="address" type="radio" value='1' {% if user_data.default == True %}checked  {% endif %}> 
+                                        <label for="formcheckoutCheckbox1">Save as default</label>
+                                   
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm-6"><label class="text-uppercase">First Name:</label>
+                                            <div class="form-group"><lable name='fname1' class="form-control" value="{{user.first_name}}">{{user.first_name}}</lable></div>
+                                        </div>
+                                        <div class="col-sm-6"><label class="text-uppercase">Last Name:</label>
+                                            <div class="form-group"><lable name='lname1' class="form-control" value="{{user.last_name}}">{{user.last_name}}</lable></div>
+                                        </div>
+                                    </div><label class="text-uppercase">Country:</label>
+                                    <div class="form-group wrapper">
+                                        <lable  class="form-control" name='country1' value="{{i.country}}">{{user_data.country}}</lable>
+                                           
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-sm-6"><label class="text-uppercase">State:</label>
+                                            <div class="form-group wrapper"><lable class="form-control" name='state1' value="{{user_data.state}}">{{user_data.state}}</lable>
+                                                   </div>
+                                        </div>
+                                        <div class="col-sm-6"><label class="text-uppercase">zip/postal code:</label>
+                                            <div class="form-group"><lable  class="form-control" name='postal1' value="{{user_data.pincode}}">{{user_data.pincode}}</lable></div>
+                                        </div>
+                                    </div>
+                                    <label class="text-uppercase">City:</label>
+                                    <div class="form-group"><lable class="form-control" name='city1' value="{{i.landmark}}">{{user_data.city}}</lable></div>
+                                    <label class="text-uppercase">Address:</label>
+                                    <div class="form-group"><lable class="form-control" name='address1' value="{{i.address}}">{{user_data.address}}</lable></div>
+                                    <label class="text-uppercase">Landmark:</label>
+                                    <div class="form-group"><lable class="form-control" name='landmrark1' value="{{i.landmark}}">{{user_data.landmark}}</lable></div>
+                                    
+                                </div>
+                            </div>
+                        
+                        </div>
+                 
+                        <div class="col-md-4">
+                            
+                            <div class="card card--grey">
+                                
+                                <div class="card-body">
+                                    <h2>SHIPPING ADDRESS</h2>
+                                    <p id='response'></p>
+                                    <!-- <p><a href="login.html">Login</a> or <a href="#">Register</a> for faster payment.</p> -->
+                                    
+                                                
+                                    <div class="clearfix">
+                                     
+                                        <input id="formcheckoutCheckbox2"  name="address" value="2" type="radio"> 
+                                        <label for="formcheckoutCheckbox2">Save as default</label>
+                                    
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-sm-6"><label class="text-uppercase">First Name:</label>
+                                            <div class="form-group"><input type="text" name='fname2' class="form-control"></div>
+                                        </div>
+                                        <div class="col-sm-6"><label class="text-uppercase">Last Name:</label>
+                                            <div class="form-group"><input type="text" name='lname2' class="form-control"></div>  
+                                        </div>
+                                    </div><label class="text-uppercase">Country:</label>
+                                    <div class="form-group wrapper">
+                                        <div class="form-group"><input type="text" name='country2' id='country' class="form-control"></div>  
+                                           
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-sm-6"><label class="text-uppercase">State:</label>
+                                            <div class="form-group"><input type="text" name='state2' id='state' class="form-control"></div>  
+                                        </div>
+                                        <div class="col-sm-6"><label class="text-uppercase">zip/postal code:</label>
+                                            <div class="form-group"><input type="text" id='zipcode' name='postal2' class="form-control"></div>  
+                                        </div>
+                                    </div>
+                                    <label class="text-uppercase">City:</label>
+                                    <div class="form-group"><input type="text" id='city' name='city2' class="form-control"></div>  
+                                    <label class="text-uppercase">Address:</label>
+                                    <div class="form-group"><input type="text" name='Address2' class="form-control"></div>  
+                                    <label class="text-uppercase">Landmark:</label>
+                                    <div class="form-group"><input type="text" name='landmark2' class="form-control"></div>  
+                                           
+                                    
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="col-md-4 mt-2 mt-md-0">
+                            
+                            
+
+                                <h2 class="custom-color">ORDER SUMMARY</h2>
+                            <div class="cart-table cart-table--sm">
+                                <div class="cart-table-prd cart-table-prd-headings d-none d-lg-table">
+                                    <div class="cart-table-prd-image"></div>
+                                    <div class="cart-table-prd-name"><b>ITEM</b></div>
+                                    <div class="cart-table-prd-price"><b>COURIER</b></div>
+                                    <div class="cart-table-prd-qty"><b>QTY</b></div>
+                                    <div class="cart-table-prd-price"><b>PRICE</b></div>
+                                </div>
+                                <div id='check'></div>
+                            </div>
+                            <div class="card-total-sm">
+                                <div class="float-right">Subtotal <span id='total1' class="card-total-price">&#8377; 00.00</span></div><p id='total1' hidden name='total' class="card-total-price">&#8377; 294.00</p>
+                            </div>
+                            <div class="mt-2"></div>
+                            
+                            <div class="card card--grey">
+                                <div class="card-body">
+                                    <h3>APPLY REFERRAL CODE</h3>
+                                    <div class="form-flex">
+                                        <div class="form-group"><input type="text" name='referral' class="form-control"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2"></div>
+                            <div class="clearfix">
+                                <button type="submit" value="Place Order" id='checkout' class="btn btn--lg w-100">payment</button>
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </form>
+    </div>
+    {% endblock %}

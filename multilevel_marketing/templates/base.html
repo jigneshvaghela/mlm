@@ -1,0 +1,1156 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Goodwin HTML Template - Index Nutrition</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <!-- Vendor CSS -->
+    <link href="{% static 'js/vendor/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/vendor/slick/slick.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/vendor/fancybox/jquery.fancybox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/vendor/animate/animate.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> -->
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style-nutrition_1_dark.css' %}" rel="stylesheet">
+    <!--icon font-->
+    <link href="{% static 'fonts/icomoon/icomoon.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!--custom font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<script>
+$.get("https://api.ipdata.co?api-key=test", function(response) {
+
+  $("#state").val( response.region);
+  $("#country").val( response.country_name);
+  $("#zipcode").val( response.postal);
+  $("#city").val( response.city);
+  
+}, "jsonp");
+
+</script>
+</head>
+
+
+
+<body class="home-page is-dropdn-click dark-scheme">
+    <div class="body-preloader">
+        <div class="loader-wrap">
+            <div class="dots">
+                <div class="dot one"></div>
+                <div class="dot two"></div>
+                <div class="dot three"></div>
+            </div>
+        </div>
+    </div>
+    
+    <header class="hdr global_width hdr-style-11 hdr_sticky hdr--transparent hdr--dark minicart-icon-style-2 hdr-mobile-style2">
+        <!-- Mobile Menu -->
+        <div class="mobilemenu js-push-mbmenu">
+            <div class="mobilemenu-content">
+                <div class="mobilemenu-close mobilemenu-toggle">CLOSE</div>
+                <div class="mobilemenu-scroll">
+                    <div class="mobilemenu-search"></div>
+                    <div class="nav-wrapper show-menu">
+                        <div class="nav-toggle"><span class="nav-back"><i class="icon-arrow-left"></i></span> <span class="nav-title"></span></div>
+                        <ul class="nav nav-level-1">
+                            
+                            <li><a href="{% url 'medicines:category' %}" title="">Medicines</a><span class="arrow"></span>
+                                
+                                <ul class="nav-level-2">
+                                    {% for medicate in medicateC %}
+                                    <li>
+                                        <a href="{% url 'medicines:Categloryfilter' medicate.id %}" title="">{{medicate.CategloryName}}</a>
+                                        <span class="arrow">
+
+                                        </span>
+                                        
+                                                      
+                                        
+                                        <ul class="nav-level-3">
+                                            {% for i in medicateS %}
+                                            {% ifequal i.CategloryName_id medicate.id %}
+                                            <li><a href="{% url 'medicines:SubCategloryfilter' i.id %}" title="">{{i.SubCategloryName}}</a></li>
+                                            <!-- <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 2</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 3</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 4</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 5</a></li> -->
+                                            {% endifequal %}
+                                            {% endfor %}
+                                        </ul>
+                                       
+                                            
+                                    </li>
+                                    <!-- <li><a href="{% url 'accounts:account_create' %}" title="">Category page</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Left sidebar filters</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Right sidebar filters</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">With category description</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Without filters</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Empty category</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'accounts:account_create' %}" title="">Cart & Checkout</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Cart variant 1</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Cart variant 2</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Checkout variant 1</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Checkout variant 2</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Checkout variant 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'accounts:account_create' %}" title="">Account</a><span class="arrow"></span>
+                                        <<ul class="submenu-list">
+                                            {% if user.is_authenticated %}
+                                            <li><a href="#" title="">{{user.first_name}}</a></li>
+                                            {% else %}
+                                            <li><a href="{% url 'accounts:login' %}" title="">Login</a></li>
+                                            {% endif %}
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Create account</a></li>
+                                            <li><a href="{% url 'accounts:account_details' %}" title="">Account details</a></li>
+                                            <li><a href="{% url 'accounts:account_addresses' %}" title="">Account addresses</a></li>
+                                            <li><a href="{% url 'payment:account_history' %}" title="">Order History</a></li>
+                                            <li><a href="{% url 'accounts:account_wishlist' %}" title="">Wishlist</a></li>
+                                            {% if user.is_authenticated %}
+                                            <li><a href="{% url 'accounts:user_logout' %}" title="">Logout</a></li>
+                                            
+                                            {% endif %}
+                                            </ul>
+                                    </li>
+                                    <li><a href="{% url 'accounts:account_create' %}" title="">Blog</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Right sidebar</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Left sidebar</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}l" title="">Sticky sidebar</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Grid 2 column</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Grid 3 column</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Grid 4 column</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Blog post</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'accounts:account_create' %}" title="">Gallery</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Gallery variant 1</a></li>
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Gallery variant 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'accounts:faq' %}" title="">Faq</a></li>
+                                    <li><a href="{% url 'accounts:about' %}" title="">About Us</a></li>
+                                    <li><a href="{% url 'accounts:contact' %}" title="">Contact Us</a></li>
+                                    <li><a href="{% url 'accounts:account_create' %}" title="">404 Page</a></li>
+                                    <li><a href="{% url 'accounts:account_create' %}" title="">Typography</a></li>
+                                    <li><a href="{% url 'accounts:account_create' %}" target="_blank" title="">Coming soon</a></li> -->
+                                    {% endfor %}
+                                </ul>
+                               
+                            </li>
+
+                            
+                            
+                            <li><a href="{% url 'gift:category' %}">GIFT</a><span class="arrow"></span>
+                                <ul class="nav-level-2">
+                                    <li><a href="{% url 'gift:category' %}" title="">Category</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            {% for i in giftCategloryS %}
+                                                                                                                                                                                                                              
+                                                <li><a href="{% url 'gift:Categloryfilter' i.id %}">{{i}}</a> </li>
+                                                 
+                                            {% endfor %}
+                                            <li><a href="{% url 'gift:category' %}" class="submenu-view-more">View More</a></li>
+                                        </ul>
+                                        
+                                    </li>
+                                     
+                                    <li><a href="{% url 'gift:category' %}" title="">Sub Category</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            {% for i in giftParentTrue %}
+                                                                                                                                                                                                                              
+                                                <li><a href="{% url 'gift:Subfilter' i.id %}">{{i}}</a> </li>
+                                                    
+                                            {% endfor %}
+                                            <li><a href="{% url 'gift:category' %}" class="submenu-view-more">View More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'gift:category' %}" title="">Type</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            {% for i in giftTypeS %}
+                                                                                                                                                                                                                              
+                                                <li><a href="{% url 'gift:Typefilter' i.id %}">{{i}}</a>
+                                                  
+                                                </li>
+                                                
+                                            {% endfor %}
+                                            <li><a href="{% url 'gift:category' %}" class="submenu-view-more">View More</a></li>
+
+                                        </ul>
+                                        
+                                        
+                                    </li>
+                                    
+                                </ul>
+                               
+                            </li>
+
+
+
+                            <li><a href="{% url 'accounts:category' %}">Cloths</a><span class="arrow"></span>
+                                <ul class="nav-level-2">
+                                    <li><a href="{% url 'accounts:category' %}" title="">Category</a><span class="arrow"></span>
+                                        
+                                        <ul class="nav-level-3">
+                                            {% for i in CategloryS %}
+                                                                                                                                                                                                                      
+                                                    <input type='text' hidden name='Name1' value="{{i.id}}">
+                                                    <li><a href="{% url 'accounts:Categloryfilter' i.id %}">{{i.CategloryName}}</a></li>
+                                                   
+                                            
+                                            {% endfor %}
+                                            <li><a href="{% url 'accounts:category' %}" class="submenu-view-more">View More</a></li>
+                                        
+                                        </ul>
+                                       
+                                    </li>
+                                     
+                                    <li><a href="{% url 'accounts:category' %}" title="">Shop By Brand</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            {% for i in BrandsS %}
+                                                
+                                                   
+                                                    <input type='text' hidden name='Name1' value="{{i.id}}"> 
+                                                    <li><a href="{% url 'accounts:quebookmak1' i.id %}">{{i.BrandsName}}</a></li>
+                                                    
+                                            {% endfor %}
+                                            <li><a href="{% url 'accounts:category' %}" class="submenu-view-more">View More</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'accounts:category' %}" title="">Shop By Color</a><span class="arrow"></span>
+                                        <ul class="nav-level-3">
+                                            {% for i in Colorss %}
+                                          
+                                                                
+                                                                
+                                            <input type='text' hidden name='Name1' value="{{i.id}}">  
+                                            <li><a href="{% url 'accounts:Colorfilter' i.id %}"><span style="background-color: {{i.ColorsName}}; padding:5px 30px !important;"></span></a></li>   
+                                            
+                                          
+                                          
+
+
+                                                <!-- <input type='text' hidden name='Name1' value="{{i.id}}">  
+                                                <li><a href="{% url 'accounts:Colorfilter' i.id %}"><span class="color" style="background-color:white"></span></a></li>   
+                                                        -->
+                                            {% endfor %}
+                                            <li><a href="{% url 'accounts:category' %}" class="submenu-view-more">View More</a></li>
+                                        </ul>
+                                        
+                                        
+                                    </li>
+                
+                                </ul>
+                            </li>
+                            
+                            <li><a href="{% url 'accounts:account_create' %}">MY ACCOUNTS</a><span class="arrow"></span>
+                                <ul class="nav-level-2">
+                                {% if user.is_authenticated %}
+                                <li><a href="#" title="">{{user.first_name}}</a></li>
+                                {% else %}
+                                <li><a href="{% url 'accounts:login' %}" title="">Login</a></li>           
+                                <li><a href="{% url 'accounts:account_create' %}" title="">Create account</a></li>
+                                {% endif %}
+                                <li><a href="{% url 'accounts:account_details' %}" title="">Account details</a></li>
+                                <li><a href="{% url 'accounts:account_addresses' %}" title="">Account addresses</a></li>
+                                <li><a href="{% url 'payment:account_history' %}" title="">Order History</a></li>
+                                <li><a href="{% url 'accounts:account_wishlist' %}" title="">Wishlist</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'accounts:user_logout' %}" title="">Logout</a></li>
+                                
+                                {% endif %}
+                                     
+                                    
+                
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- /Mobile Menu -->
+        <div class="hdr-mobile show-mobile">
+            <div class="hdr-content">
+                <div class="container">
+                    <!-- Menu Toggle -->
+                    <div class="menu-toggle"><a href="#" class="mobilemenu-toggle"><i class="icon icon-menu"></i></a></div>
+                    <!-- /Menu Toggle -->
+                    <div class="logo-holder"><a href="{% url 'accounts:index' %} " class="logo"><img src="{% static 'images/processed.png' %}" srcset="{% static 'images/processed.png' %} 2x" alt=""></a></div>
+                    <div class="hdr-mobile-right">
+                        <div class="hdr-topline-right links-holder"></div>
+                        <div class="minicart-holder">
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hdr-desktop hide-mobile" style="background-color:Black;">
+            <div class="hdr-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto logo-holder"><a href="{% url 'accounts:index' %}" class="logo"><img src="{% static 'images/processed.png' %}" srcset="{% static 'images/processed.png' %} 2x" alt=""></a></div>
+                        <!--navigation-->
+                        <div class="prev-menu-scroll icon-angle-left prev-menu-js"></div>
+                        <div class="nav-holder">
+                            <div class="hdr-nav">
+                                <!--mmenu-->
+                                <ul class="mmenu mmenu-js">
+                                    
+                                    <li class="mmenu-item--simple"><a href="{% url 'medicines:category' %}" title="">Medicines</a>
+                                        <div class="mmenu-submenu">
+                                            
+                                            <ul class="submenu-list">
+                                               {% for medicate in medicateC %}
+                                             
+                                               
+                                               
+                                                <li><a href="{% url 'medicines:Categloryfilter' medicate.id %}" title="">{{medicate.CategloryName}}</a>
+                                                    
+                                                    <ul>
+                                                        {% for i in medicateS %}
+                                                      
+                                                       {% ifequal i.CategloryName_id medicate.id %}
+                                                        <li><a href="{% url 'medicines:SubCategloryfilter' i.id %}" title="">{{i.SubCategloryName}}</a></li>
+                                                        <!-- <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 2</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 3</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 4</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Product page variant 5</a></li> -->
+                                                       {% endifequal %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                   
+                                                   
+                                                </li>
+                                               
+                                                
+                                                {% endfor %}
+                                                <!-- <li><a href="{% url 'accounts:account_create' %}" title="">Category page</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Left sidebar filters</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Right sidebar filters</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">With category description</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Without filters</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Empty category</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Cart & Checkout</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Cart variant 1</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Cart variant 2</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Checkout variant 1</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Checkout variant 2</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Checkout variant 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Account</a>
+                                                    <ul class="submenu-list">
+                                            {% if user.is_authenticated %}
+                                            <li><a href="#" title="">{{user.first_name}}</a></li>
+                                            {% else %}
+                                            <li><a href="{% url 'accounts:login' %}" title="">Login</a></li>
+                                            {% endif %}
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Create account</a></li>
+                                            <li><a href="{% url 'accounts:account_details' %}" title="">Account details</a></li>
+                                            <li><a href="{% url 'accounts:account_addresses' %}" title="">Account addresses</a></li>
+                                            <li><a href="{% url 'payment:account_history' %}" title="">Order History</a></li>
+                                            <li><a href="{% url 'accounts:account_wishlist' %}" title="">Wishlist</a></li>
+                                            {% if user.is_authenticated %}
+                                            <li><a href="{% url 'accounts:user_logout' %}" title="">Logout</a></li>
+                                            
+                                            {% endif %}
+                                            </ul>
+                                                </li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Blog</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Right sidebar</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Left sidebar</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Sticky sidebar</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Grid 2 column</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Grid 3 column</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Grid 4 column</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %}" title="">Blog post</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Gallery</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'accounts:account_create' %" title="">Gallery variant 1</a></li>
+                                                        <li><a href="{% url 'accounts:account_create' %" title="">Gallery variant 2</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Faq</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">About Us</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Contact Us</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Reviews Page</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Compare Page</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">404 Page</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" title="">Typography</a></li>
+                                                <li><a href="{% url 'accounts:account_create' %}" target="_blank" title="">Coming soon</a></li> -->
+                                            </ul>
+                                            
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="mmenu-item--mega"><a href="{% url 'gift:category' %}">GIFT</a>
+                                        <div class="mmenu-submenu mmenu-submenu-with-sublevel">
+                                            <div class="mmenu-submenu-inside">
+                                                <div class="container">
+                                                    <div class="mmenu-right width-20">
+                                                        <h4 class="text-center submenu-title">Featured</h4>
+                                                        <div class="prd-carousel-menu">
+                                                            <div class="prd-sm"><a href="{% url 'gift:category' %}" class="prd-img"><img src="{% static 'images/menu/gift2.jpg' %}" data-srcset="{% static 'images/menu/gift2.jpg' %}" class="lazyload" alt=""></a>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="mmenu-cols column-5">
+                                                        <div class="mmenu-col">
+                                                            <h3 class="submenu-title"><a href="{% url 'gift:category' %}">Category</a></h3>
+                                                            <ul class="submenu-list">
+                                                                                                                      
+                                                            {% for i in giftCategloryS %}
+                                                                                                                                                                                                                              
+                                                            <li><a href="{% url 'gift:Categloryfilter' i.id %}">{{i}}</a> </li>
+                                                    
+                                                            {% endfor %}
+                                                            </ul><a href="{% url 'gift:category' %}" class="submenu-view-more">View More</a>
+                                                            <div class="submenu-img"><a href="{% url 'gift:category' %}"><img src="{% static 'images/placeholder.png' %}" data-src="images/menu/category-img-01.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        </div>
+                                                        <div class="mmenu-col">
+                                                            <h3 class="submenu-title"><a href="{% url 'gift:category' %}">Sub Category</a></h3>
+                                                            <ul class="submenu-list">
+                                                                
+                                                                {% for i in giftParentTrue %}
+                                                                                                                                                                                                                              
+                                                            <li><a href="{% url 'gift:Subfilter' i.id %}">{{i}}</a> </li>
+                                                    
+                                                            {% endfor %}
+                                                            </ul><a href="{% url 'gift:category' %}" class="submenu-view-more">View More</a>
+                                                            <div class="submenu-img"><a href="{% url 'gift:category' %}"><img src="{% static 'images/placeholder.png' %}" data-src="images/menu/category-img-02.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        </div>
+                                                        <div class="mmenu-col">
+                                                            <h3 class="submenu-title"><a href="{% url 'gift:category' %}">Type</a></h3>
+                                                            <ul class="submenu-list">
+                                                                {% for i in giftTypeS %}
+                                                                                                                                                                                                                              
+                                                            <li><a href="{% url 'gift:Typefilter' i.id %}">{{i}}</a> </li>
+                                                    
+                                                            {% endfor %}
+                                                            </ul><a href="{% url 'gift:category' %}" class="submenu-view-more">View More</a>
+                                                            <div class="submenu-img"><a href="{% url 'gift:category' %}"><img src="{% static 'images/placeholder.png' %}" data-src="images/menu/category-img-03.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="mmenu-bottom">
+                                                        <div class="custom-text"><span></span></div>
+                                                        <div class="custom-text"><span>24/7</span> customer support</div>
+                                                        <div class="custom-text"><span></span></div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mmenu-item--mega"><a href="{% url 'accounts:category' %}">Cloths</a>
+                                        <div class="mmenu-submenu">
+                                            <div class="mmenu-submenu-inside">
+                                                <div class="container">
+                                                    <div class="mmenu-right width-25">
+                                                        <!--banners grid from the editor Banner21 --> <a href="{% url 'accounts:category' %}" class="bnr-wrap">
+                                                            <div class="bnr bnr21 bnr--style-1-1 bnr--left bnr--bottom bnr-hover-scale" data-fontratio="2.63"><img src="{% static 'images/menu/clothesnew.jpg' %}" alt=""> <span class="bnr-caption" style="padding: 8% 8%;"><span class="bnr-text-wrap"><span class="bnr-text5">try<br>to be 1-st</span> <span class="btn-decor btn-decor--xs bnr-btn">shop new arrivals<span class="btn-line"></span></span></span></span></div>
+                                                        </a>
+                                                        <!--banners grid from the editor -->
+                                                    </div>
+                                                    <div class="mmenu-cols column-5">
+                                                        <div class="mmenu-col">
+                                                            {% for i in CategloryS %}
+                                                                                                                                                                                                                              
+                                                            <input type='text' hidden name='Name1' value="{{i.id}}">
+                                                            <h3 class="submenu-title"><a href="{% url 'accounts:Categloryfilter' i.id %}">{{i.CategloryName}}</a></h3>
+                                                    
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div class="mmenu-col mmenu-col--double">
+                                                            <h3 class="submenu-title"><a href="category.html">Shop By Brand</a></h3>
+                                                            <ul class="submenu-list ">
+                                                            
+                                                                {% for i in BrandsS %}
+                                                        
+                                                           
+                                                            <input type='text' hidden name='Name1' value="{{i.id}}"> 
+                                                            <li><a href="{% url 'accounts:quebookmak1' i.id %}">{{i.BrandsName}}</a></li>
+                                                            
+                                                            {% endfor %}
+                                                            </ul><a href="{% url 'accounts:category' %}" class="submenu-view-more">View More</a>
+                                                    
+                                                                
+                                                        </div>
+                                                        <div class="mmenu-col">
+                                                            <h3 class="submenu-title"><a href="{% url 'accounts:category' %}">Shop By Color</a></h3>
+                                                            <ul class="submenu-list">
+                                                                {% for i in Colorss %}
+                                                                
+                                                                
+                                                                <input type='text' hidden name='Name1' value="{{i.id}}">  
+                                                                <li><a href="{% url 'accounts:Colorfilter' i.id %}"><span class="color" style="background-color: {{i.ColorsName}};"></span></a></li>   
+                                                                
+                                                              
+                                                                {% endfor %}
+                                                            </ul><a href="{% url 'accounts:category' %}" class="submenu-view-more">View More</a>
+                                                        </div>
+                                                     
+                                                    </div>
+                                                    <div class="mmenu-bottom">
+                                                        <div class="custom-text"><span></span></div>
+                                                        <div class="custom-text"><span>24/7</span> customer support</div>
+                                                        <div class="custom-text"><span></span></div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mmenu-item--simple"><a href="#" title="">My Accounts</a>
+                                        <div class="mmenu-submenu">
+                                            <ul class="submenu-list">
+                                            {% if user.is_authenticated %}
+                                            <li><a href="{% url 'accounts:personal_details' %}" title="">{{user.first_name}}</a></li>
+                                            {% else %}
+                                            <li><a href="{% url 'accounts:login' %}" title="">Login</a></li>           
+                                            <li><a href="{% url 'accounts:account_create' %}" title="">Create account</a></li>
+                                            {% endif %}
+                                            <li><a href="{% url 'accounts:account_details' %}" title="">Account details</a></li>
+                                            <li><a href="{% url 'accounts:account_addresses' %}" title="">Account addresses</a></li>
+                                            <li><a href="{% url 'payment:account_history' %}" title="">Order History</a></li>
+                                            <li><a href="{% url 'accounts:account_wishlist' %}" title="">Wishlist</a></li>
+                                            {% if user.is_authenticated %}
+                                            <li><a href="{% url 'accounts:user_logout' %}" title="">Logout</a></li>
+                                            
+                                            {% endif %}
+                                            </ul>
+                                        </div>
+                                    </li>
+                                   
+                                </ul>
+                                <!--/mmenu-->
+                            </div>
+                        </div>
+                        <div class="next-menu-scroll icon-angle-right next-menu-js"></div>
+                        <!--//navigation-->
+                        <div class="col-auto hdr-content-right">
+                            <div class="search-holder">
+                                <!-- Header Search -->
+                                <div class="dropdn dropdn_search hide-mobile only-icon"><a href="#" class="dropdn-link"><i class="icon icon-search2"></i><span>Search</span></a>
+                                    <div class="dropdn-content">
+                                        <div class="container">
+                                            
+                                            
+                                              <!-- <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="q" style="width:700px;">
+                                              <button class="btn my-2 my-sm-0 mr-5" type="submit"><i class="fa fa-search" style="font-size:38px;" aria-hidden="true"></i></button>
+                                            -->
+                                        
+                                           
+                                            <form action="{% url 'accounts:Search' %}" class="search" method="get">
+                                                <input type="text" class="search-input" name="q" placeholder="search keyword">
+                                                <button type="submit" class="search-button"><i class="icon-search2"></i> </button>
+                                                
+                                            
+                                                <!-- <div class="search-popular js-search-autofill"><span class="search-popular-label">popular searches:</span>
+                                                    <a href="#">Jeans</a> <a href="#">Sunglazsses</a> <a href="#">hand bags</a> 
+                                                    <a href="#">Discount</a> <a href="#">St.Valentine’s gift</a> 
+                                                    <a href="#">maxi dress</a> <a href="#">Underwear</a>
+                                                    <a href="#">new in clothing</a>
+                                                    <a href="#">men tops</a></div> -->
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Header Search -->
+                            </div>
+                            <div class="links-holder">
+                                <!-- Header Account -->
+                                <div class="dropdn dropdn_account only-icon"><a href="#" class="dropdn-link"><i class="icon icon-person"></i><span>My Account</span></a>
+                                    <div class="dropdn-content">
+                                        <div class="container">
+                                            <div class="dropdn-close">CLOSE</div>
+                                            <ul>
+                                                <li><a href="{% url 'accounts:personal_details' %}"><i class="icon icon-person-fill"></i><span>My Account</span></a></li>
+                                                
+                                               
+                                                {% if user.is_authenticated %}
+                                                <li><a href="{% url 'accounts:personal_details' %}"><i class="icon icon-lock"></i><span>{{user.first_name}}</span></a></li>
+                                                {% else %}
+                                                <li><a href="{% url 'accounts:account_create' %}"><i class="icon icon-person-fill-add"></i><span>Register</span></a></li>
+                                                
+                                                <li><a href="{% url 'accounts:login' %}"><i class="icon icon-lock"></i><span>Log In</span></a></li>
+                                                {% endif %}
+                                                <li><a href="{% url 'accounts:checkout' %}"><i class="icon icon-check-box"></i><span>Checkout</span></a></li>
+                                                {% if user.is_authenticated %}
+                                                <li><a href="{% url 'accounts:user_logout' %}"><i class="icon icon-check-box"></i><span>Logout</span></a></li>
+                                               
+                                            
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Header Account -->
+                            </div>
+                            
+                            <div class="minicart-holder">
+                                
+                                <div class="minicart minicart-js">
+                                <div    data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+                                            sagittis lacus vel augue laoreet rutrum faucibus."><a href="#" class="minicart-link" ><i class="icon icon-handbag"></i> <span class="minicart-qty">
+                                    <span id="cart">0</span>
+                                </span> <span class="minicart-title">Shopping Cart</span> </a>
+                                    
+                                         
+                                            </div>
+                                    <div class="minicart-drop">
+                                        <div class="container">
+
+
+                                            <div class="minicart-drop-close">CLOSE</div>
+                                            <div class="minicart-drop-content">
+                                                <h3>Recently added items:</h3>
+                                               
+                                                
+                                                <div id='aaa'>
+                                                    
+                                                </div>
+                                                
+                                                <div class="minicart-drop-total">
+                                                    <div class="float-right"><span class="minicart-drop-summa"><span>Cart Subtotal:</span> <b id='total'></b></span>
+                                                        
+                                                        <div class="minicart-drop-btns-wrap"><button onclick='clearAll()' class="btn"><i class="icon-check-box"></i><span>Clear Cart</span></button> <a href="{% url 'accounts:cart_view' %}" class="btn btn--alt"><i class="icon-handbag"></i><span>view cart</span></a></div>
+                                                    </div>
+                                                    <form method="post" action="{% url 'accounts:cart_view' %}">{% csrf_token %}
+                                                    <div class="float-left">
+                                                        <button class="btn btn--alt">
+                                                            <i class="icon-handbag"></i>
+                                                            <input type="hidden" id='itemsJson' name='itemsJson'>
+                                                            <span>view cart</span>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                                  
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hdr-topline hdr-topline--color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto hdr-topline-left">
+                            <div class="custom-text"><a href="tel:919001115211"><i class="icon icon-mobile"></i><b>+91 90011 15211</b></a>   |   <a href="tel:918125131000"><i class="icon icon-mobile"></i><b></b>+91 81251 31000</b></a></div>
+                        </div>
+                        <div class="col hdr-topline-center">
+                            <div class="custom-text">
+                                <a href="mailto:pooniagifthubcity@gmail.com" class="dropdn-link"><i class="icon icon-mail"></i><span class="text-lowercase">pooniagifthubcity@gmail.com</span></a>
+                                <!-- <span>FREE</span> STANDARD DELIVERY ON ORDERS OVER &#8377; 150</div> -->
+                        </div>
+                        <!-- <div class="col-auto hdr-topline-right links-holder"> -->
+                            <!-- Header Wishlist -->
+                               
+                            <div class="dropdn dropdn_wishlist @@classes">
+                                <a href="{% url 'accounts:account_wishlist' %}" class="dropdn-link">
+                               
+                                <i class="icon icon-heart-1"></i><span>Wishlist</span>
+                               
+                                </a>
+                            </div>
+                          
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sticky-holder compensate-for-scrollbar">
+            <div class="container">
+                <div class="row"><a href="#" class="mobilemenu-toggle show-mobile"><i class="icon icon-menu"></i></a>
+                    <div class="col-auto logo-holder-s"><a href="index.html" class="logo"><img src="{% static 'images/logo-pink2-dark.png' %}" srcset="{% static 'images/logo-pink2-retina-dark.png' %} 2x" alt=""></a></div>
+                    <!--navigation-->
+                    <div class="prev-menu-scroll icon-angle-left prev-menu-js"></div>
+                    <div class="nav-holder-s"></div>
+                    <div class="next-menu-scroll icon-angle-right next-menu-js"></div>
+                    <!--//navigation-->
+                    <div class="col-auto minicart-holder-s"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class='mx-2 p-6'>
+
+    </div>
+{% block content %}
+{% endblock %}
+
+
+  <footer class="page-footer footer-style-9 global_width fullboxed">
+        <div class="footer-top container">
+            <div class="row py-md-4 py-lg-6">
+                <div class="col-md">
+                    <div class="footer-block collapsed-mobile">
+                        <div class="title">
+                            <h4>Categories</h4>
+                            <div class="toggle-arrow"></div>
+                        </div>
+                        <div class="collapsed-content">
+                            <ul>
+                                <li><a href="category.html">Women's Fashion</a></li>
+                                <li><a href="category.html">Mens's Accessories</a></li>
+                                <li><a href="category.html">Electronics</a></li>
+                                <li><a href="brands.html">All Brands</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="footer-block collapsed-mobile">
+                        <div class="title">
+                            <h4>Customer Service</h4>
+                            <div class="toggle-arrow"></div>
+                        </div>
+                        <div class="collapsed-content">
+                            <ul>
+                                <li><a href="{% url 'accounts:terms_of_use' %}">Terms of Use</a></li>
+                                <li><a href="{% url 'accounts:privacy_policy' %}">Privacy Policy</a></li>
+                                <li><a href="{% url 'accounts:faq' %}">F.A.Q.</a></li>
+                                <li><a href="{% url 'accounts:contact' %}">Contact Info</a></li>
+                                <li><a href="{% url 'accounts:about' %}">About Us</a></li>
+                                <li><a href="{% url 'accounts:account_create' %}">Create Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="footer-block collapsed-mobile">
+                        <div class="title">
+                            <h4>My Account</h4>
+                            <div class="toggle-arrow"></div>
+                        </div>
+                        <div class="collapsed-content">
+                            <ul>
+                                <li><a href="{% url 'accounts:personal_details' %}">My Account</a></li>
+                                <li><a href="{% url 'accounts:cart' %}">View Cart</a></li>
+                                <li><a href="{% url 'accounts:account_wishlist' %}">My Wishlist</a></li>
+                                <li><a href="{% url 'payment:account_history' %}">Order Status</a></li>
+                                <li><a href="{% url 'accounts:account_details' %}">Track My Order</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="footer-block">
+                        <div class="title">
+                            <h4>follow us</h4>
+                        </div>
+                        <div class="subscribe-form">
+                            <div class="subscribe-form-text">
+                                <p>Lorem ipsum dolor sit amet, cons ectetur adipiscing elit.</p>
+                            </div>
+                            <form action="#">
+                                <div class="input-group">
+                                    <!-- <div class="form-control-wrapper">
+                                        <input type="text" class="form-control" placeholder="Е-mail address">
+                                    </div>
+                                    <div class="input-group-btn"><button class="btn btn--input-group"><i class="icon-arrow-right"></i></button></div> -->
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="social-list">
+                            <li><a href="#" class="icon icon-facebook"></a></li>
+                            <li><a href="#" class="icon icon-twitter"></a></li>
+                            <li><a href="#" class="icon icon-google"></a></li>
+                            <li><a href="#" class="icon icon-instagram"></a></li>
+                            <li><a href="#" class="icon icon-youtube"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-cover bg-cover py-3 py-md-7" style="background-image: url(images/footer/footer-shopfeatures-bg-1.jpg)">
+            <div class="container">
+                <div class="row shop-features-style5 light-color">
+                    <div class="col-md"><a href="#" class="shop-feature light-color">
+                            <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                            <div class="shop-feature-text">
+                                <div class="text1">Free worlwide delivery</div>
+                                <div class="text2">Lorem ipsum dolor sit amet</div>
+                            </div>
+                        </a></div>
+                    <div class="col-md"><a href="#" class="shop-feature light-color">
+                            <div class="shop-feature-icon"><i class="icon-arrow-left-circle"></i></div>
+                            <div class="shop-feature-text">
+                                <div class="text1">100% money back guarantee</div>
+                                <div class="text2">Lorem ipsum dolor sit amet</div>
+                            </div>
+                        </a></div>
+                    <div class="col-md"><a href="#" class="shop-feature light-color">
+                            <div class="shop-feature-icon"><i class="icon-call"></i></div>
+                            <div class="shop-feature-text">
+                                <div class="text1">24/7 customer support</div>
+                                <div class="text2">Lorem ipsum dolor sit amet</div>
+                            </div>
+                        </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <div class="row lined py-2 py-md-3">
+                <div class="footer-logo col-md"><a href="#"><img src="{% static 'images/logo-footer-dark.png' %}" class="img-fluid" alt=""></a></div>
+                <div class="footer-copyright col-md ml-auto text-md-right">
+                    <p class="footer-copyright-text"><span>© Copyright</span> <script>document.write(new Date().getFullYear())</script> <a href="{% url 'accounts:index' %}" >Poonia Gift Hub City</a>. <span>All rights reserved.</span></p>
+                    <p class="footer-copyright-links"><a href="{% url 'accounts:terms_of_use' %}">Terms & conditions</a> <a href="{% url 'accounts:privacy_policy' %}">Privacy policy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+    {% for i in resultD %}
+    
+    <a class="back-to-top js-back-to-top compensate-for-scrollbar" href="#" title="Scroll To Top"><i class="icon icon-angle-up"></i></a>
+   
+    
+    <div class="modal--quickview" id="{{i.id}}" style="display: none;">
+        <div class="modal-header">
+            <div class="modal-header-title">Quick View</div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="prd-block" id="prdGalleryModal">
+                   
+                    <div class="prd-block_info">
+                        <div class="prd-block_info-row info-row-1 mb-md-1">
+                            <div class="info-row-col-1">
+                                <h1 class="prd-block_title">{{i.Product_Name}}</h1>
+                            </div>
+                            <div class="info-row-col-2">
+                                <!-- <div class="product-sku">SKU: <span>#0005</span></div> -->
+                                <div class="prd-block__labels"><span class="prd-label--sale">SALE</span> <span class="prd-label--new">NEW</span></div>
+                                <div class="prd-block_link"><a href="#" class="icon-heart-1"></a></div>
+                            </div>
+                        </div>
+                        <div class="prd-block_info-row info-row-2">
+                           
+                                <div class="info-row-col-3">
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">{{i.Discount_Price}}</span> <span class="prd-block_price--old">{{i.Price}}</span></div>
+                                </div>
+                                <div class="info-row-col-4">
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">{{i.Discount_Price}}</span> <span class="prd-block_price--old">{{i.Price}}</span></div>
+                                    
+                                    
+                                    <p class="card-text" id="Product_idpr{{i.id}}" hidden>{{i.id}}</p>
+                                    <h5 class="card-title" hidden id="Product_Namepr{{i.id}}">{{i.Product_Name}}</h5>
+                                    <p class="card-text" id="Product_imgpr{{i.id}}" hidden>{{i.Image.url}}</p>
+                                    <h6 class="card-title" hidden>Price: <span id="Pricepr{{i.id}}">{{i.Price}}</span></h6>
+                                    <h6 class="card-title" hidden>Courier charge: <span id="Courierpr{{i.id}}">{{i.Courier_charge}}</span></h6>
+                                    <span id="div{{i.id}}" class="divpr">
+                                        {% if i.Availability == 0 %}
+                                        <button class="btn btn-primary cart" disabled>AddTo Cart</button>
+                                        {% else %}
+                                        <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button>
+                                        {% endif %}
+                                        <!-- <button id="pr{{i.id}}" class="btn btn-primary cart">AddTo Cart</button> -->
+                                    </span>
+                                                  
+                                      
+                                </div>
+
+                        </div>
+                    </div>
+                
+                    <div class="clearfix"></div>
+                    <div class="prd-block_info js-prd-m-holder"></div><!-- Product Gallery -->
+                    <div class="product-previews-wrapper">
+                        <div class="product-quickview-carousel slick-arrows-aside-simple js-product-quickview-carousel">
+                            <div><a href="images/products/large/product-01.jpg" data-fancybox="gallery"><img src="{{i.Image.url}}" alt=""></a></div>
+                            {% for j in Image_Videos %}
+                           
+                            {% ifequal j.Image_Product_id i.id %}
+                            <div><a href="images/products/large/product-01-2.jpg" data-fancybox="gallery"><img src="{{j.Image.url}}" alt=""></a></div>
+                            <!-- <div><a href="images/products/large/product-01-3.jpg" data-fancybox="gallery"><img src="images/products/product-01-3.jpg" alt=""></a></div>
+                            <div><a href="images/products/large/product-01-4.jpg" data-fancybox="gallery"><img src="images/products/product-01-4.jpg" alt=""></a></div>
+                            <div><a href="images/products/large/product-01-5.jpg" data-fancybox="gallery"><img src="images/products/product-01-5.jpg" alt=""></a></div> -->
+                            {% endifequal %}
+                            {% endfor %}
+                        </div>
+                        <div class="gdw-loader"></div>
+                    </div>
+                    <!-- /Product Gallery -->
+                    {% for j in ProductDescription %}
+                    
+                    {% ifequal j.Product_id i.id %}
+                  
+                    
+                    
+                    <div class="mt-3 mt-md-4">
+                        
+                       
+                        <h2>Description</h2>
+                        <p>{{j.Product_Description}}</p>
+                     
+                        <div class="table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>Manufacture</td>
+                                        <td><b>{{j.Manufacturing}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SAMPLES</td>
+                                        <td><b>{{j.Samples}}</b></td>
+                                   
+                                    </tr>
+                                    <tr>
+                                        <td>PROOF</td>
+                                        <td><b>{{j.Proof}}</b></td>
+                                      
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>MATRIAL_DETAILS</td>
+                                        <td><b>{{j.Matrial_detail}}</b></td>
+                                       
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>WEIGHT</td>
+                                        <td><b>{{j.Weight}}</b></td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                         
+                        </div>
+                    </div>
+                    {% endifequal %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+         
+    </div>
+    
+    {% endfor %} 
+
+    <div id="modalWishlistAdd" class="modal-info modal--success" style="display: none;">
+        <div class="modal-text"><i class="icon icon-heart-fill modal-icon-info"></i><span>Product added to wishlist</span></div>
+    </div>
+    <div id="modalWishlistRemove" class="modal-info modal--error" style="display: none;">
+        <div class="modal-text"><i class="icon icon-heart modal-icon-info"></i><span>Product removed from wishlist</span></div>
+    </div>
+    <div id="modalCheckOut" class="modal--checkout" style="display: none;">
+        <div class="modal-header">
+            <div class="modal-header-title"><i class="icon icon-check-box"></i><span>Product added to cart successfully!</span></div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modalchk-prd">
+                    <div class="row h-font">
+                        <div class="modalchk-prd-image col"><a href="{% url 'accounts:account_create' %}"><img src="{% static 'images/products/product-01.jpg' %}" alt="Glamor shoes"></a></div>
+                        <div class="modalchk-prd-info col">
+                            <h2 class="modalchk-title"><a href="{% url 'accounts:account_create' %}">Glamor shoes</a></h2>
+                            <div class="modalchk-price">&#8377; 34.00</div>
+                            <div class="prd-options"><span class="label-options">Sizes:</span><span class="prd-options-val">xs</span></div>
+                            <div class="prd-options"><span class="label-options">Qty:</span><span class="prd-options-val">1</span></div>
+                            <div class="prd-options"><span class="label-options">Color:</span><span class="prd-options-val">silver</span></div>
+                            <div class="shop-features-modal d-none d-sm-block"><a href="#" class="shop-feature">
+                                    <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                                    <div class="shop-feature-text">
+                                        <div class="text1">Delivery</div>
+                                        <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                    </div>
+                                </a></div>
+                        </div>
+                        <div class="shop-features-modal d-sm-none"><a href="#" class="shop-feature">
+                                <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                                <div class="shop-feature-text">
+                                    <div class="text1">Delivery</div>
+                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                </div>
+                            </a></div>
+                        <div class="modalchk-prd-actions col">
+                            <h3 class="modalchk-title">There is <span class="custom-color">3</span> items in your cart</h3>
+                            <div class="prd-options"><span class="label-options">Total:</span><span class="modalchk-total-price">&#8377; 600.00</span></div>
+                            <div class="modalchk-custom"><img src="{% static 'images/payment/guaranteed.png" alt="Guaranteed"></div>
+                            <div class="modalchk-btns-wrap"><a href="{% url 'accounts:account_create' %}" class="btn">proceed to checkout</a> <a href="#" class="btn btn--alt" data-fancybox-close>continue shopping</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- {% block mainScript %}
+    <script>
+
+        $(function () {
+            $(document).on('click', '.btn-increment, .btn-decrement, .btn, .delete-product', function (event) {
+                event.preventDefault()
+                console.log('it is ', $(this).attr("class"))
+                var quantity = 1, Price = 0, product;
+                if ($(this).hasClass('btn')) {
+                    Price = parseInt($(this).parent().children('.prix2n').text())
+                    product = $(this).parent().find('h4').text()
+                } else if ($(this).hasClass('delete-product')) {
+                    quantity = -1 * parseInt($(this).parents('li').find('.input-quantity').val());
+                    product = $(this).parents('li').find('.title').text()
+                } else {
+                    if ($(this).hasClass('btn-decrement')) {
+                        quantity = -1
+                    }
+                    product = $(this).parent().siblings('.cart-info.title').text()
+                }
+
+                
+                var URL = {% url 'accounts:cart' %}
+                    $.ajax({
+                        method: "POST",
+                        url: URL,
+                        data: {
+                            'Price': Price,
+                            'product': product,
+                            'quantity': quantity,
+                            'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        },
+                        
+                        success: handleFormSuccess,
+                        error: handleFormError,
+                    })
+            });
+            $(document).on('focus', '.input-quantity', function (event) {
+                $(this).attr('oldValue', parseInt($(this).val()));
+            });
+
+            $(document).on('change', '.input-quantity', function (event) {
+                console.log("the old val : ", $(this).attr('oldValue'))
+                var quantity = parseInt($(this).val() - $(this).attr('oldValue'))
+                var product = $(this).parents('li').children('.title.cart-info').text()
+                console.log("updating ", product, quantity)
+                var URL = {% url 'accounts:cart' %}
+                    $.ajax({
+                        method: "POST",
+                        url: URL,
+                        data: {
+                            'product': product,
+                            'quantity': quantity,
+                            'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        },
+
+                        success: handleFormSuccess,
+                        error: handleFormError,
+                    })
+            });
+
+            function handleFormSuccess(data, textStatus, jqXHR) {
+                alert("Data Save Successfully at Record No : " + data.items);
+                $('.badge-panier').html(data.items);
+                $("#cd-cart").html(data.cart)
+                    .append('<a href="" class="checkout-btn" name="checkout">Checkout</a>')
+                $("#cdd-cart").html(data.cart)
+
+            }
+
+            function handleFormError(jqXHR, textStatus, errorThrown) {
+            }
+        })
+    </script>
+
+
+
+{% endblock %} -->
+
+<script>
+   
+   
+    
+    function shipIt() {
+        if(document.URL !== document.location.origin + "/" && !document.URL.includes('search')) {
+            query = document.URL.split("=");
+            prev = query[1].split('/')
+            let url = document.location.origin + "/q=";
+            url += Product_NameHandler(prev[0]) + "/";
+            window.location.replace(url);
+        }
+        else {
+            let url = document.location.origin + "/q=";
+            url += Product_NameHandler() + "/" ;
+            window.location.replace(url);
+        }
+    }
+
+    
+    function searchIt() {
+        var q = document.getElementById('search').value;
+        let url = document.location.origin + "/search=";
+        url += q;
+        window.location.replace(url);
+        {
+        console.log(url);
+        }
+    }
+  
+
+</script>
+
+    <script src="{% static 'js/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendor/slick/slick.min.js' %}"></script>
+    <script src="{% static 'js/vendor/scrollLock/jquery-scrollLock.min.js' %}"></script>
+    <script src="{% static 'js/vendor/instafeed/instafeed.min.js' %}"></script>
+    <script src="{% static 'js/vendor/countdown/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/vendor/ez-plus/jquery.ez-plus.min.js' %}"></script>
+    <script src="{% static 'js/vendor/tocca/tocca.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.min.js' %}"></script>
+    <script src="{% static 'js/vendor/isotope/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'js/vendor/fancybox/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/vendor/cookie/jquery.cookie.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap-select/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'js/vendor/lazysizes/lazysizes.min.js' %}"></script>
+    <script src="{% static 'js/vendor/lazysizes/ls.bgset.min.js' %}"></script>
+    <script src="{% static 'js/vendor/form/jquery.form.min.js' %}"></script>
+    <script src="{% static 'js/vendor/form/validator.min.js' %}"></script>
+    <script src="{% static 'js/vendor/slider/slider.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/like.js' %}"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+<html>
+	<div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Create account</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 col-md-6">
+                        <h2 class="text-center">CREATE AN ACCOUNT</h2>
+                        <div class="form-wrapper">
+                            <p>To access your whishlist, address book and contact preferences and to take advantage of our speedy checkout, create an account with us now.</p>
+                            <form method="POST">{% csrf_token %}
+							{% csrf_token %}
+							<div class="form-group"><input type="text" name="otp" class="form-control" placeholder="enter otp"></div>
+							
+							<div class="text-center"><input type="submit" name='enter_otp' class="btn" value="Submit"></div>
+							<!-- <input type="submit" name='enter_otp' value="EnterOTP"> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <form method="POST">{% csrf_token %}
+	Enter OTP:<br>
+	<input type="text" name="otp">
+
+	<input type="submit" name='enter_otp' value="EnterOTP">
+</form>
+</html> -->
+
+{% endblock %}

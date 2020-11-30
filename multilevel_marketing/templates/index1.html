@@ -1,0 +1,1619 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <div class="page-content">
+        <div class="page-content-loader">
+            <div class="loader-wrap">
+                <div class="dots">
+                    <div class="dot one"></div>
+                    <div class="dot two"></div>
+                    <div class="dot three"></div>
+                </div>
+            </div>
+        </div>
+        <div class="holder mt-3 show_under_header">
+            <div class="container">
+                <div class="row row--sm-pad">
+                    <div class="col-md-9 centerColumn">
+                        <!-- BN Slider 1 -->
+                        <div class="bnslider-wrapper">
+                            <div class="bnslider keep-scale" id="bnslider-001" data-slick='{"arrows": true, "dots": true}' data-autoplay="false" data-speed="5000" data-start-width="851" data-start-height="602" data-start-mwidth="851" data-start-mheight="602">
+                                {% for i in your_view_context %}
+                                <div class="bnslider-slide">
+                                    <div class="bnslider-image" style="background-image: url('{{i.image.url}}');"></div>
+                                    <div class="bnslider-text-wrap bnslider-overlay">
+                                        <div class="bnslider-text-content txt-middle txt-center">
+                                            <div class="bnslider-text-content-flex container">
+                                                <div class="bnslider-vert">
+                                                    <div class="bnslider-text bnslider-text--sm" data-animation="fadeIn" data-animation-delay="1s">PERFORATORS</div>
+                                                    <div class="bnslider-text bnslider-text--xs" data-animation="fadeIn" data-animation-delay="1s">GET UP TO</div>
+                                                    <div class="bnslider-text bnslider-text--lg" data-animation="shake" data-animation-delay="0.2s">15% OFF</div>
+                                                    <div class="btn-wrap" data-animation="fadeIn" data-animation-delay="2s"><a href="#" class="btn-decor">shop<span class="btn-line"></span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% comment %} <div class="bnslider-slide">
+                                    <div class="bnslider-image" style="background-image: url('{% static 'images/home-tools/slider/slider-tools-2.png' %}');"></div>
+                                    <div class="bnslider-text-wrap bnslider-overlay">
+                                        <div class="bnslider-text-content txt-middle txt-center">
+                                            <div class="bnslider-text-content-flex container">
+                                                <div class="bnslider-vert">
+                                                    <div class="bnslider-text bnslider-text--sm" data-animation="fadeIn" data-animation-delay="1s">NEW ARRIVALS</div>
+                                                    <div class="bnslider-text bnslider-text--lg" data-animation="unfold" data-animation-delay="0.2s">SAWS</div>
+                                                    <div class="btn-wrap" data-animation="fadeIn" data-animation-delay="2s"><a href="#" class="btn-decor">shop now<span class="btn-line"></span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bnslider-slide">
+                                    <div class="bnslider-image" style="background-image: url('{% static 'images/home-tools/slider/slider-tools-3.jpg' %}');"></div>
+                                    <div class="bnslider-text-wrap bnslider-overlay">
+                                        <div class="bnslider-text-content txt-middle txt-center">
+                                            <div class="bnslider-text-content-flex container">
+                                                <div class="bnslider-vert">
+                                                    <div class="bnslider-text bnslider-text--sm" data-animation="fadeIn" data-animation-delay="1s">SPECIAL OFFERS</div>
+                                                    <div class="bnslider-text bnslider-text--xs" data-animation="fadeIn" data-animation-delay="1s">FOR</div>
+                                                    <div class="bnslider-text bnslider-text--lg" data-animation="spinIn" data-animation-delay="0.2s">DRILLS</div>
+                                                    <div class="btn-wrap" data-animation="fadeIn" data-animation-delay="2s"><a href="#" class="btn-decor">shop now<span class="btn-line"></span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                            </div>
+                            <div class="bnslider-loader">
+                                <div class="loader-wrap">
+                                    <div class="dots">
+                                        <div class="dot one"></div>
+                                        <div class="dot two"></div>
+                                        <div class="dot three"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bnslider-arrows container">
+                                <div></div>
+                            </div>
+                            <div class="bnslider-dots container"></div>
+                        </div>
+                        <!-- //BN Slider 1 -->
+                    </div>
+                    <div class="col-md-3 mt-15 mt-md-0 sideColumn">
+                        <div class="bnrs-column">
+                            <!--banner from the editor Banner24 --> <a href="#" class="bnr-wrap">
+                                <div class="bnr bnr24 bnr--style-1 bnr--center bnr--middle" data-fontratio="2.74"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-1.jpg' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">TOP</span> <span class="bnr-text3">SALES</span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line"></span></span></span></span></div>
+                            </a>
+                            <!-- //banner from the editor -->
+                            <!--banner from the editor Banner24 --> <a href="#" class="bnr-wrap">
+                                <div class="bnr bnr24 bnr--style-1 bnr--center bnr--middle" data-fontratio="2.74"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-2.png' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">new arrivals</span> <span class="bnr-text3">POWER TOOLS</span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line" style="background-color: #000"></span></span></span></span></div>
+                            </a>
+                            <!-- //banner from the editor -->
+                            <!--banner from the editor Banner24 --> <a href="#" class="bnr-wrap">
+                                <div class="bnr bnr24 bnr--style-1 bnr--center bnr--middle" data-fontratio="2.74"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-3.png' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">unique deal</span> <span class="bnr-text3">SAWS</span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line"></span></span></span></span></div>
+                            </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="holder boxed mt-3 show_under_header">
+            <div class="container holder-bg-12">
+                <div class="row shop-features-style3">
+                    <div class="col-md"><a href="#" class="shop-feature">
+                            <div class="shop-feature-icon"><i class="icon-box3"></i></div>
+                            <div class="shop-feature-text">
+                                <div class="text1">Free worlwide delivery</div>
+                                <div class="text2">Lorem ipsum dolor sit amet</div>
+                            </div>
+                        </a></div>
+                    <div class="col-md"><a href="#" class="shop-feature">
+                            <div class="shop-feature-icon"><i class="icon-arrow-left-circle"></i></div>
+                            <div class="shop-feature-text">
+                                <div class="text1">100% money back guarantee</div>
+                                <div class="text2">Lorem ipsum dolor sit amet</div>
+                            </div>
+                        </a></div>
+                    <div class="col-md"><a href="#" class="shop-feature">
+                            <div class="shop-feature-icon"><i class="icon-call"></i></div>
+                            <div class="shop-feature-text">
+                                <div class="text1">24/7 customer support</div>
+                                <div class="text2">Lorem ipsum dolor sit amet</div>
+                            </div>
+                        </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3 mt-md-5">
+            <div class="row">
+                <div class="col-md-8 col-lg-9 aside centerColumn">
+                    <div class="holder">
+                        <div class="filters-prd js-filters-prd">
+                            <h2 class="h1-style filters-label active" data-filter=".prd"><a href="#">All</a></h2>
+                            <h2 class="h1-style filters-label" data-filter=".prd-popular"><a href="#">Popular</a></h2>
+                            <h2 class="h1-style filters-label" data-filter=".prd-sale"><a href="#">Sale</a></h2>
+                            <h2 class="h1-style filters-label" data-filter=".prd-new"><a href="#">New</a></h2>
+                        </div>
+                        <div class="prd-grid data-to-show-3 data-to-show-xs-2 js-product-isotope">
+                            <div class="prd prd-has-loader prd prd-new prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-73.jpg' %}" alt="Wrench" class="js-prd-img lazyload"></a>
+                                        <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Wrench</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 30.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-sale prd-new">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-74.jpg' %}" alt="Wen" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-14%</div>
+                                        <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Wen</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 60.00</div>
+                                            <div class="price-old">$ 70.00</div>
+                                            <div class="price-comment">You save $ 10.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-popular">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-75.jpg' %}" alt="Turbo Cutter" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Turbo Cutter</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 40.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-sale prd-new prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-76.jpg' %}" alt="Set of tools" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-15%</div>
+                                        <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Set of tools</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 50.00</div>
+                                            <div class="price-old">$ 60.00</div>
+                                            <div class="price-comment">You save $ 10.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-popular">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-77.jpg' %}" alt="Screwdriver Set" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Screwdriver Set</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 40.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-sale prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-78.jpg' %}" alt="Ruler" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-14%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Ruler</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 60.00</div>
+                                            <div class="price-old">$ 70.00</div>
+                                            <div class="price-comment">You save $ 10.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="more-link-wrapper text-center"><a href="#" class="btn-decor">shop all</a></div>
+                    </div><!-- banner grid from the editor -->
+                    <div class="holder global_width">
+                        <div class="container">
+                            <div class="row bnr-grid">
+                                <div class="col-md-6">
+                                    <div class="col-content">
+                                        <!-- banner from the editor Banner26 --> <a href="#" class="bnr-wrap">
+                                            <div class="bnr bnr26 bnr--style-1-2 bnr--right bnr--top bnr-hover-scale" data-fontratio="4.09"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-5.png' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text2">DISCOUNT<br>for SAWS</span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line"></span></span></span></span></div>
+                                        </a>
+                                        <!-- //banner from the editor -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-content">
+                                        <!-- banner from the editor Banner26 --> <a href="#" class="bnr-wrap">
+                                            <div class="bnr bnr26 bnr--style-1-2 bnr--left bnr--top bnr-hover-scale" data-fontratio="4.09"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-6.png' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text2">DISCOUNT<br>for DRILLS</span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line"></span></span></span></span></div>
+                                        </a>
+                                        <!-- //banner from the editor -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //banner grid from the editor -->
+                    <div class="holder mt-5">
+                        <div class="title-with-arrows">
+                            <h2 class="h1-style">Brands</h2>
+                            <div class="carousel-arrows"></div>
+                        </div>
+                        <ul class="brand-carousel js-brand-carousel" data-slick='{"slidesToShow": 5, "responsive": [{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-01.png' %}" class="lazyload" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-02.png' %}" class="lazyload" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-03.png' %}" class="lazyload" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-04.png' %}" class="lazyload" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-05.png' %}" class="lazyload" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-06.png' %}" class="lazyload" alt=""></a></li>
+                            <li><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-07.png' %}" class="lazyload" alt=""></a></li>
+                        </ul>
+                        <!--<div class="text-center"><a href="#" class="btn-decor">view all brands</a></div>-->
+                    </div><!-- banner grid from the editor -->
+                    <div class="holder global_width">
+                        <div class="container">
+                            <div class="row bnr-grid">
+                                <div class="col-md-12">
+                                    <div class="col-content">
+                                        <!-- banner from the editor Banner27 --> <a href="#" class="bnr-wrap">
+                                            <div class="bnr bnr27 bnr--style-1-2 bnr--center bnr--middle bnr-hover-scale" data-fontratio="8.48"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-7.png' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">Unique Deal</span> <span class="bnr-text2">FOR PRECISION TOOLS</span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line"></span></span></span></span></div>
+                                        </a>
+                                        <!-- //banner from the editor -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //banner grid from the editor -->
+                    <div class="holder">
+                        <div class="title-with-arrows">
+                            <h2 class="h1-style">Sale</h2>
+                            <div class="carousel-arrows"></div>
+                        </div>
+                        <div class="prd-grid prd-carousel js-prd-carousel js-product-isotope-sm data-to-show-3 data-to-show-md-3 data-to-show-sm-3 data-to-show-xs-2" data-slick='{"slidesToShow": 3, "responsive": [{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+                            <div class="prd prd-has-loader prd prd-sale prd-new prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-74.jpg' %}" alt="Wen" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-14%</div>
+                                        <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Wen</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 60.00</div>
+                                            <div class="price-old">$ 70.00</div>
+                                            <div class="price-comment">You save $ 10.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-sale prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-78.jpg' %}" alt="Ruler" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-14%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Ruler</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 60.00</div>
+                                            <div class="price-old">$ 70.00</div>
+                                            <div class="price-comment">You save $ 10.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-sale prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-79.jpg' %}" alt="Grinding machine" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-33%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Grinding machine</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 20.00</div>
+                                            <div class="price-old">$ 30.00</div>
+                                            <div class="price-comment">You save $ 10.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-loader prd prd-sale prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-placeholder.png' %}" data-srcset="{% static 'images/products/product-80.jpg' %}" alt="Adjustable wrench" class="js-prd-img lazyload"></a>
+                                        <div class="label-sale">-16%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2019/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Adjustable wrench</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 100.00</div>
+                                            <div class="price-old">$ 120.00</div>
+                                            <div class="price-comment">You save $ 20.00</div>
+                                        </div>
+                                        <div class="prd-hover">
+                                            <div class="prd-action">
+                                                <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                                <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                            </div>
+                                            <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                                <ul class="list-options size-swatch">
+                                                    <li class="active"><span>xs</span></li>
+                                                    <li><span>s</span></li>
+                                                    <li><span>m</span></li>
+                                                    <li><span>l</span></li>
+                                                    <li><span>xl</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="more-link-wrapper text-center"><a href="#" class="btn-decor">shop all</a></div>-->
+                    </div>
+                    <div class="holder mt-4">
+                        <div class="title-with-arrows">
+                            <h2 class="h1-style">Latest News</h2>
+                            <div class="carousel-arrows"></div>
+                        </div>
+                        <div class="post-prws post-prws-carousel" data-slick='{"slidesToShow": 3, "responsive": [{"breakpoint": 992, "settings": {"slidesToShow": 2}},{"breakpoint": 480,"settings": {"slidesToShow": 1}}]}'>
+                            <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="{% static 'images/home-tools/blog-img-1.jpg' %}" class="lazyload" alt=""></a>
+                                <h4 class="post-title"><a href="#">Home page visual builder</a></h4>
+                                <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                                <div class="post-bot">
+                                    <div class="post-date">09 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                                    <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                                </div>
+                            </div>
+                            <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="{% static 'images/home-tools/blog-img-2.jpg' %}" class="lazyload" alt=""></a>
+                                <h4 class="post-title"><a href="#">Banners Editor</a></h4>
+                                <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                                <div class="post-bot">
+                                    <div class="post-date">10 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                                    <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                                </div>
+                            </div>
+                            <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="{% static 'images/home-tools/blog-img-3.jpg' %}" class="lazyload" alt=""></a>
+                                <h4 class="post-title"><a href="#">Full theme control</a></h4>
+                                <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                                <div class="post-bot">
+                                    <div class="post-date">11 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                                    <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                                </div>
+                            </div>
+                            <div class="post-prw"><a href="blog-post.html" class="post-img"><img src="{% static 'images/blog/blog-placeholder.png' %}" data-src="{% static 'images/home-tools/blog-img-4.jpg' %}" class="lazyload" alt=""></a>
+                                <h4 class="post-title"><a href="#">Goodwin is very versatile</a></h4>
+                                <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>
+                                <div class="post-bot">
+                                    <div class="post-date">12 dec</div><a href="blog-post.html" class="post-link">read more</a>
+                                    <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 aside aside--left sideColumn">
+                    <div class="d-lg-block d-none">
+                        <h2 class="h-category">CATEGORIES</h2>
+                        <!--mmenu-->
+                        <ul class="mmenu vmmenu-js mmenu--vertical">
+                            <li class="mmenu-item--mega"><a href="">New Arrivals<span class="menu-label menu-label--color1">NEW</span></a>
+                                <div class="mmenu-submenu mmenu-submenu-with-sublevel">
+                                    <div class="mmenu-submenu-inside">
+                                        <div class="container">
+                                            <div class="mmenu-cols column-4">
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-01.png' %}" class="lazyload" alt=""></a></div>
+                                                    <h3 class="submenu-title"><a href="#">Clothes</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a>
+                                                            <ul class="sub-level">
+                                                                <li><a href="#">Sub Menu Level 2</a>
+                                                                    <ul class="sub-level">
+                                                                        <li><a href="#">Sub Menu Level 3</a>
+                                                                            <ul class="sub-level">
+                                                                                <li><a href="#">Sub Menu Level 4</a>
+                                                                                    <ul class="sub-level">
+                                                                                        <li><a href="#">Sub Menu Level 5</a>
+                                                                                            <ul class="sub-level">
+                                                                                                <li><a href="#">Sub Menu Level 6</a>
+                                                                                                    <ul class="sub-level">
+                                                                                                        <li><a href="#">Sub Menu Level 7</a></li>
+                                                                                                        <li><a href="#">Sub Menu Level 7</a></li>
+                                                                                                        <li><a href="#">Sub Menu Level 7</a></li>
+                                                                                                    </ul>
+                                                                                                </li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-02.png' %}" class="lazyload" alt=""></a></div>
+                                                    <h3 class="submenu-title"><a href="#">Clocks</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-03.png' %}" class="lazyload" alt=""></a></div>
+                                                    <h3 class="submenu-title"><a href="#">Footwear</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-04.png' %}" class="lazyload" alt=""></a></div>
+                                                    <h3 class="submenu-title"><a href="#">Accessories</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                            </div>
+                                            <div class="mmenu-bottom mmenu-bottom-brands"><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-01.png' %}" class="lazyload" alt=""></a><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-02.png' %}" class="lazyload" alt=""></a><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-03.png' %}" class="lazyload" alt=""></a><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-04.png' %}" class="lazyload" alt=""></a><a href="#"><img src="{% static 'images/brand/brand-logo-placeholder.png' %}" data-src="{% static 'images/brand/brand-logo-05.png' %}" class="lazyload" alt=""></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mmenu-item--mega"><a href="">BRAND</a>
+                                <div class="mmenu-submenu mmenu-submenu-with-sublevel mmenu-submenu--bg submenu-style-01" style="background: url('{% static 'images/verticalmenu/vmenu-bg-01.png' %}') #30271c">
+                                    <div class="mmenu-submenu-inside">
+                                        <div class="container">
+                                            <div class="mmenu-cols column-4">
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">POWER TOOLS</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Drill</a></li>
+                                                        <li><a href="#">Hammer drill</a></li>
+                                                        <li><a href="#">Screwdriver</a></li>
+                                                        <li><a href="#">Saw</a></li>
+                                                        <li><a href="#">circular saw</a></li>
+                                                        <li><a href="#">hammer</a></li>
+                                                        <li><a href="#">Nails</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">CORDLESS TOOLS</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Drill</a></li>
+                                                        <li><a href="#">Hammer drill</a></li>
+                                                        <li><a href="#">Screwdriver</a></li>
+                                                        <li><a href="#">Saw</a></li>
+                                                        <li><a href="#">circular saw</a></li>
+                                                        <li><a href="#">hammer</a></li>
+                                                        <li><a href="#">Nails</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">HAND TOOLS</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Drill</a></li>
+                                                        <li><a href="#">Hammer drill</a></li>
+                                                        <li><a href="#">Screwdriver</a></li>
+                                                        <li><a href="#">Saw</a></li>
+                                                        <li><a href="#">circular saw</a></li>
+                                                        <li><a href="#">hammer</a></li>
+                                                        <li><a href="#">Nails</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">DUST COLLECTORS</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a>
+                                                            <ul class="sub-level">
+                                                                <li><a href="#">Sub Menu Level 2</a>
+                                                                    <ul class="sub-level">
+                                                                        <li><a href="#">Sub Menu Level 3</a>
+                                                                            <ul class="sub-level">
+                                                                                <li><a href="#">Sub Menu Level 4</a>
+                                                                                    <ul class="sub-level">
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">BARE TOOLS</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a>
+                                                            <ul class="sub-level">
+                                                                <li><a href="#">Sub Menu Level 2</a>
+                                                                    <ul class="sub-level">
+                                                                        <li><a href="#">Sub Menu Level 3</a>
+                                                                            <ul class="sub-level">
+                                                                                <li><a href="#">Sub Menu Level 4</a>
+                                                                                    <ul class="sub-level">
+                                                                                        <li><a href="#">Sub Menu Level 5</a>
+                                                                                            <ul class="sub-level">
+                                                                                                <li><a href="#">Sub Menu Level 6</a>
+                                                                                                    <ul class="sub-level">
+                                                                                                        <li><a href="#">Sub Menu Level 7</a></li>
+                                                                                                        <li><a href="#">Sub Menu Level 7</a></li>
+                                                                                                        <li><a href="#">Sub Menu Level 7</a></li>
+                                                                                                    </ul>
+                                                                                                </li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                                <li><a href="#">Sub Menu Level 6</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                        <li><a href="#">Sub Menu Level 5</a></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                                <li><a href="#">Sub Menu Level 4</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                        <li><a href="#">Sub Menu Level 3</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                                <li><a href="#">Sub Menu Level 2</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">PLUMBING TOOLS</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Drill</a></li>
+                                                        <li><a href="#">Hammer drill</a></li>
+                                                        <li><a href="#">Screwdriver</a></li>
+                                                        <li><a href="#">Saw</a></li>
+                                                        <li><a href="#">circular saw</a></li>
+                                                        <li><a href="#">hammer</a></li>
+                                                        <li><a href="#">Nails</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mmenu-item--mega"><a href="">Clothing</a>
+                                <div class="mmenu-submenu mmenu-submenu-with-sublevel">
+                                    <div class="mmenu-submenu-inside">
+                                        <div class="container">
+                                            <div class="mmenu-right mmenu-right-nopad width-33">
+                                                <div class="prd-carousel-vert prd-carousel-vert-striped">
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><a href="product.html"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-41.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">bigsteps</a></div>
+                                                            <h2 class="prd-title"><a href="#">Ottoman</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 21.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><a href="product.html"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-42.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">bigsteps</a></div>
+                                                            <h2 class="prd-title"><a href="#">Dining Room Chair</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 100.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><a href="product.html"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-43.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">bigsteps</a></div>
+                                                            <h2 class="prd-title"><a href="#">Three-legged table</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 30.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><a href="product.html"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-44.jpg' %}" class="lazyload" alt=""></a></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">bigsteps</a></div>
+                                                            <h2 class="prd-title"><a href="#">Square table</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 45.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mmenu-cols column-2">
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-05.png' %}" class="lazyload" alt="">
+                                                        <h3 class="submenu-title submenu-title-right">Tables</h3>
+                                                    </div>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Headsets</a></li>
+                                                        <li><a href="#">Sofas</a></li>
+                                                        <li><a href="#">Armchairs</a></li>
+                                                        <li><a href="#">Ottomans</a></li>
+                                                        <li><a href="#">Kitchens</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-06.png' %}" class="lazyload" alt="">
+                                                            <h3 class="submenu-title submenu-title-right">Sofas</h3>
+                                                        </a></div>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Headsets</a></li>
+                                                        <li><a href="#">Sofas</a></li>
+                                                        <li><a href="#">Armchairs</a></li>
+                                                        <li><a href="#">Ottomans</a></li>
+                                                        <li><a href="#">Kitchens</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-07.png' %}" class="lazyload" alt="">
+                                                            <h3 class="submenu-title submenu-title-right">Nightstands</h3>
+                                                        </a></div>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Headsets</a></li>
+                                                        <li><a href="#">Sofas</a></li>
+                                                        <li><a href="#">Armchairs</a></li>
+                                                        <li><a href="#">Ottomans</a></li>
+                                                        <li><a href="#">Kitchens</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <div class="submenu-img"><a href="#"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/verticalmenu/vmenu-category-img-08.png' %}" class="lazyload" alt="">
+                                                            <h3 class="submenu-title submenu-title-right">Chairs</h3>
+                                                        </a></div>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Headsets</a></li>
+                                                        <li><a href="#">Sofas</a></li>
+                                                        <li><a href="#">Armchairs</a></li>
+                                                        <li><a href="#">Ottomans</a></li>
+                                                        <li><a href="#">Kitchens</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mmenu-item--mega"><a href="">Footwear</a>
+                                <div class="mmenu-submenu mmenu-submenu-with-sublevel">
+                                    <div class="mmenu-submenu-inside">
+                                        <div class="container">
+                                            <div class="mmenu-right mmenu-right-nopad width-40">
+                                                <!-- banners from the editor Banner20 --> <a href="#" class="bnr-wrap">
+                                                    <div class="bnr bnr20 bnr--style-1-1 bnr--center bnr--bottom" data-fontratio="3.3"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/banner-12.png' %}" alt=""> <span class="bnr-caption" style="padding: 10% 10% 14% 20%;"><span class="bnr-text-wrap"><span class="bnr-text4">NEW SUMMER COLLECTION</span> <span class="btn-decor btn-decor--xs bnr-btn">shop now<span class="btn-line"></span></span></span></span></div>
+                                                </a>
+                                                <!-- //banners from the editor -->
+                                            </div>
+                                            <div class="mmenu-cols column-2">
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Clothes</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Clocks</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Footwear</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Accessories</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shirts & Tops</a></li>
+                                                        <li><a href="#">Coats & Outerwear</a></li>
+                                                        <li><a href="#">Sweaters</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Pants</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mmenu-item--mega"><a href="">ACCESSORIES</a>
+                                <div class="mmenu-submenu mmenu-submenu-with-sublevel">
+                                    <div class="mmenu-submenu-inside">
+                                        <div class="container">
+                                            <div class="mmenu-cols column-4">
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Photo and video</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Smartphones</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Computers</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Laptops</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Gadgets</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Accessories</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Appliances</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title submenu-title-right"><a href="#">Office equipment</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Cameras</a></li>
+                                                        <li><a href="#">Hard disks</a></li>
+                                                        <li><a href="#">Monitors</a></li>
+                                                        <li><a href="#">Flash drives</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More...</a>
+                                                </div>
+                                            </div>
+                                            <div class="mmenu-bottom">
+                                                <div class="prd-grid">
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-33.jpg' %}" alt=""></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">sony</a></div>
+                                                            <h2 class="prd-title"><a href="#">Sony Handycam</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 444.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-32.jpg' %}" alt=""></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">samsung</a></div>
+                                                            <h2 class="prd-title"><a href="#">Samsung QLED</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 999.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="prd-vertical-sm">
+                                                        <div class="prd-img"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/product-26.jpg' %}" alt=""></div>
+                                                        <div class="prd-info">
+                                                            <div class="prd-tag"><a href="#">nokia</a></div>
+                                                            <h2 class="prd-title"><a href="#">Nokia Phone</a></h2>
+                                                            <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                                            <div class="prd-price">
+                                                                <div class="price-new">$ 310.00</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mmenu-item--mega"><a href="">Sale</a>
+                                <div class="mmenu-submenu mmenu-submenu-with-sublevel mmenu-submenu--bg submenu-style-02" style="background-image: url('{% static 'images/verticalmenu/vmenu-bg-02.png' %}');">
+                                    <div class="mmenu-submenu-inside">
+                                        <div class="container">
+                                            <div class="mmenu-cols column-4">
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Stuffed Toys</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Teddy bear</a></li>
+                                                        <li><a href="#">Toy truck</a></li>
+                                                        <li><a href="#">Dolls</a></li>
+                                                        <li><a href="#">Toy house</a></li>
+                                                        <li><a href="#">Constructor for boys</a></li>
+                                                        <li><a href="#">Lego dinosaur</a></li>
+                                                        <li><a href="#">Toy robot</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Cars & Equipment</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Teddy bear</a></li>
+                                                        <li><a href="#">Toy truck</a></li>
+                                                        <li><a href="#">Dolls</a></li>
+                                                        <li><a href="#">Toy house</a></li>
+                                                        <li><a href="#">Constructor for boys</a></li>
+                                                        <li><a href="#">Lego dinosaur</a></li>
+                                                        <li><a href="#">Toy robot</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Dolls</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Teddy bear</a></li>
+                                                        <li><a href="#">Toy truck</a></li>
+                                                        <li><a href="#">Dolls</a></li>
+                                                        <li><a href="#">Toy house</a></li>
+                                                        <li><a href="#">Constructor for boys</a></li>
+                                                        <li><a href="#">Lego dinosaur</a></li>
+                                                        <li><a href="#">Toy robot</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Lego</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Teddy bear</a></li>
+                                                        <li><a href="#">Toy truck</a></li>
+                                                        <li><a href="#">Dolls</a></li>
+                                                        <li><a href="#">Toy house</a></li>
+                                                        <li><a href="#">Constructor for boys</a></li>
+                                                        <li><a href="#">Lego dinosaur</a></li>
+                                                        <li><a href="#">Toy robot</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Board Games</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Teddy bear</a></li>
+                                                        <li><a href="#">Toy truck</a></li>
+                                                        <li><a href="#">Dolls</a></li>
+                                                        <li><a href="#">Toy house</a></li>
+                                                        <li><a href="#">Constructor for boys</a></li>
+                                                        <li><a href="#">Lego dinosaur</a></li>
+                                                        <li><a href="#">Toy robot</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                                <div class="mmenu-col">
+                                                    <h3 class="submenu-title"><a href="#">Constructors</a></h3>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#">Teddy bear</a></li>
+                                                        <li><a href="#">Toy truck</a></li>
+                                                        <li><a href="#">Dolls</a></li>
+                                                        <li><a href="#">Toy house</a></li>
+                                                        <li><a href="#">Constructor for boys</a></li>
+                                                        <li><a href="#">Lego dinosaur</a></li>
+                                                        <li><a href="#">Toy robot</a></li>
+                                                    </ul><a href="#" class="submenu-view-more">View More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mmenu-item--simple"><a href="#" title="">Simple Menu</a>
+                                <div class="mmenu-submenu">
+                                    <ul class="submenu-list">
+                                        <li><a href="#" title="">Sub Menu Item</a>
+                                            <ul class="submenu-list">
+                                                <li><a href="#" title="">Sub Menu Item</a>
+                                                    <ul class="submenu-list">
+                                                        <li><a href="#" title="">Sub Menu Item</a>
+                                                            <ul class="submenu-list">
+                                                                <li><a href="#" title="">Sub Menu Item</a>
+                                                                    <ul class="submenu-list">
+                                                                        <li><a href="#" title="">Sub Menu Item</a>
+                                                                            <ul class="submenu-list">
+                                                                                <li><a href="#" title="">Sub Menu Item</a>
+                                                                                    <ul class="submenu-list">
+                                                                                        <li><a href="#" title="">Sub Menu Item</a>
+                                                                                            <ul class="submenu-list">
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                                <li><a href="#" title="">Sub Menu Item</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                        <li><a href="#" title="">Sub Menu Item</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--/mmenu-->
+                    </div>
+                    <div class="aside-block-delimiter d-lg-block d-none"></div>
+                    <div class="aside-block">
+                        <!-- banner from the editor Banner25 --> <a href="#" class="bnr-wrap">
+                            <div class="bnr bnr25 bnr--style-3-1 bnr--left bnr--top bnr-hover-scale" data-fontratio="2.62"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/banner-tools-4.png' %}" class="lazyload" alt=""> <span class="bnr-caption"><span class="bnr-text-wrap"><span class="bnr-text1">Bare Tools</span> <span class="bnr-text2">65<sup>%</sup><sub>off</sub></span> <span class="btn-decor btn-decor--xs bnr-btn" style="color: #fff">shop now<span class="btn-line"></span></span></span></span></div>
+                        </a>
+                        <!-- //banner from the editor -->
+                    </div>
+                    <div class="aside-block-delimiter"></div>
+                    <div class="aside-block">
+                        <div class="title-with-arrows">
+                            <h2 class="h1-style">Popular</h2>
+                            <div class="carousel-arrows"></div>
+                        </div>
+                        <div class="prd-carousel-vert js-prd-carousel-vert" data-slick='{"slidesToShow": 5, "responsive": [{"breakpoint": 768,"settings": {"slidesToShow": 2}}]}'>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-84.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Drill</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 80.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-85.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Male set</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 70.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-75.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Turbo Cutter</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 40.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-80.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Adjustable wrench</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 100.00</div>
+                                        <div class="price-old">$ 120.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-79.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Pro+ Screwdriver</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 80.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-78.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Ruler</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 60.00</div>
+                                        <div class="price-old">$ 70.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd-vertical-sm">
+                                <div class="prd-img"><a href="#" title="Product Title"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/products/small/product-74.jpg' %}" class="lazyload" alt=""></a></div>
+                                <div class="prd-info">
+                                    <div class="prd-tag"><a href="#">tools</a></div>
+                                    <h2 class="prd-title"><a href="#">Wen</a></h2>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    <div class="prd-price">
+                                        <div class="price-new">$ 60.00</div>
+                                        <div class="price-old">$ 70.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aside-block-delimiter"></div>
+                    <div class="aside-block">
+                        <div class="single-prd-carousel data-slick prd-text-center" data-slick='{"slidesToShow": 1, "dots": true, "arrows": false, "adaptiveHeight": true}'>
+                            <div class="prd prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-81.jpg' %}" alt="Male set" class="js-prd-img"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2020/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tools</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Male set</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 70.00</div>
+                                        </div>
+                                        <div class="prd-action">
+                                            <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                            <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                        </div>
+                                        <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                            <ul class="list-options size-swatch">
+                                                <li class="active"><span>xs</span></li>
+                                                <li><span>s</span></li>
+                                                <li><span>m</span></li>
+                                                <li><span>l</span></li>
+                                                <li><span>xl</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-82.jpg' %}" alt="Dremel" class="js-prd-img"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2020/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">bone</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Dremel</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 10.00</div>
+                                        </div>
+                                        <div class="prd-action">
+                                            <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                            <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                        </div>
+                                        <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                            <ul class="list-options size-swatch">
+                                                <li class="active"><span>xs</span></li>
+                                                <li><span>s</span></li>
+                                                <li><span>m</span></li>
+                                                <li><span>l</span></li>
+                                                <li><span>xl</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prd prd prd-new prd-has-countdown">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="{% static 'images/products/product-73.jpg' %}" alt="Wrench" class="js-prd-img"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                                        <div class="countdown-box">
+                                            <div class="countdown js-countdown" data-countdown="2020/12/31"></div>
+                                        </div>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile"><a href="#">tool</a></div>
+                                        <h2 class="prd-title"><a href="product.html">Wrench</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        <div class="prd-price">
+                                            <div class="price-new">$ 30.00</div>
+                                        </div>
+                                        <div class="prd-action">
+                                            <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>Add To Cart</span></button></form>
+                                            <div class="prd-links"><a href="#" class="icon-eye prd-qview-link js-qview-link" data-fancybox data-src="#modalQuickView"></a></div>
+                                        </div>
+                                        <div class="prd-options prd-hidemobile"><span class="label-options">Sizes:</span>
+                                            <ul class="list-options size-swatch">
+                                                <li class="active"><span>xs</span></li>
+                                                <li><span>s</span></li>
+                                                <li><span>m</span></li>
+                                                <li><span>l</span></li>
+                                                <li><span>xl</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aside-block-delimiter"></div>
+                    <div class="aside-block">
+                        <div class="title-with-arrows">
+                            <h2 class="h1-style">Clients Say</h2>
+                            <div class="carousel-arrows"></div>
+                        </div>
+                        <div class="testimonials-carousel data-slick" data-slick='{"slidesToShow": 1}'>
+                            <div class="testimonials-item-wrap">
+                                <div class="testimonials-item">
+                                    <div class="testimonials-item-text">Lorem ipsum dolor sit amet consest adicpising elitr anno dolor sit amet.</div>
+                                    <div class="d-flex">
+                                        <div class="testimonials-item-photo"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/testimonial-author-photo.png' %}" class="lazyload" alt=""></div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <div class="testimonials-item-name"><a href="#">JACK PETERSON</a></div>
+                                            <div class="testimonials-item-date"><a href="#">13 dec</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonials-item">
+                                    <div class="testimonials-item-text">Nullam dui anno anno dolor sit amet consest adicpising elitr anno dolor sit amet nullam dui anno anno.</div>
+                                    <div class="d-flex">
+                                        <div class="testimonials-item-photo"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/testimonial-author-photo2.png' %}" class="lazyload" alt=""></div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <div class="testimonials-item-name"><a href="#">PETER JACKSON</a></div>
+                                            <div class="testimonials-item-date"><a href="#">15 dec</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonials-item-wrap">
+                                <div class="testimonials-item">
+                                    <div class="testimonials-item-text">Nullam dui anno anno dolor sit amet consest adicpising elitr anno dolor sit amet nullam dui anno anno.</div>
+                                    <div class="d-flex">
+                                        <div class="testimonials-item-photo"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/testimonial-author-photo2.png' %}" class="lazyload" alt=""></div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <div class="testimonials-item-name"><a href="#">PETER JACKSON</a></div>
+                                            <div class="testimonials-item-date"><a href="#">15 dec</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonials-item">
+                                    <div class="testimonials-item-text">Lorem ipsum dolor sit amet consest adicpising elitr anno dolor sit amet.</div>
+                                    <div class="d-flex">
+                                        <div class="testimonials-item-photo"><img src="{% static 'images/placeholder.png' %}" data-src="{% static 'images/home-tools/testimonial-author-photo.png' %}" class="lazyload" alt=""></div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <div class="testimonials-item-name"><a href="#">JACK PETERSON</a></div>
+                                            <div class="testimonials-item-date"><a href="#">13 dec</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="holder fullwidth">
+            <div class="container px-0">
+                <div class="contact-map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2201.3258493677126!2d-74.01291322172017!3d40.70657451080482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sua!4v1492962272380"></iframe></div>
+            </div>
+        </div> {% endcomment %}
+    </div>
+    {% endblock %}

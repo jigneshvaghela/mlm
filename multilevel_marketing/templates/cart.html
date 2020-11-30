@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<input type="hidden" id='itemsJson' name='itemsJson'>
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Cart</span></li>
+                </ul>
+            </div>
+        </div>
+
+
+       
+        <div class="holder mt-0">
+            <div class="container">
+                <h1 class="text-center">Shopping Cart</h1>
+                <form method="POST" action="{% url 'accounts:checkout' %}">
+                {% csrf_token %}
+                <div class="cart-table">
+                   
+                   <input type="hidden" id='products_id' name='id_get'>
+                   
+                    {% for k,u in items_json.items %}
+                    
+                        
+                   
+                   
+                       <div class="cart-table-prd">
+                        
+                        <div class="cart-table-prd-image"><a href="#"><img src="{{u.4}}" alt=""></a></div>
+                        <div class="cart-table-prd-name">
+                            <h5><a href="#"></a></h5>
+                           
+                          
+                            <h2><a href="#">{{u.1}}</a></h2>
+                           
+                        </div>
+                        
+                        {% for j in Products %} 
+                        
+                        
+                                           
+                        {% for i in j %}  
+                           
+                        {% ifequal i.id u.3 %}
+                        <input type="hidden" name="products" value="{{i.id}}">
+                        
+                        <div class="cart-table-prd-qty">
+                        <span>color:</span>         
+                        {% for Product_Colors in i.Product_Colors.all %}
+                       
+                        <input name='{{i.id}}' id='{{i.id}}{{ Product_Colors }}' type='radio' style="outline:8px {{ Product_Colors }} !important;" value='{{Product_Colors}}' required/>
+                        <label for='{{i.id}}{{ Product_Colors }}' style="background-color:{{ Product_Colors }} !important;  height:24px !important; min-width:0px !important; margin: 0 83px -2px 0 !important;">
+                        </label> 
+                      
+                         
+                       
+                       
+                        {% endfor %}
+                        
+                    </div>
+                   
+                     
+                        <!-- {% ifnotequal i.Product_Size 0 %} -->
+                        <div class="cart-table-prd-qty"><span>size:</span>
+                            {% for Product_Size in i.Product_Size.all %}
+                            {{Product_Size}}
+                        <input id="{{i.id}}{{ Product_Size }}" type="radio" name="Size{{i.id}}" value="{{Product_Size}}" required/>
+                        <label for="{{i.id}}{{ Product_Size }}"><span><span></span></span>{{Product_Size}}</label>
+                            {% endfor %}
+                       
+                        
+                        </div>
+                        <!-- {% endifnotequal %} -->
+                        {% endifequal %}
+                        {% endfor %}
+                       
+                        {% endfor %}
+                        
+                       
+                        
+                        <div class="cart-table-prd-qty"><span>qty:</span> <b>{{u.0}}</b></div>
+                        <div class="cart-table-prd-price"><span>price:</span> <b>$ {{u.2}}</b></div>
+                        <div class="cart-table-prd-price"><span>charge:</span> <b>$ {{u.5}}</b></div>
+                        <div class="cart-table-prd-action"><a href="#" class="icon-heart"></a>
+                             <a href="#" class="icon-pencil"></a> <a href="#" class="icon-cross"></a></div>
+                        
+                    </div>
+                   
+                    {% endfor %}
+                   
+                    
+                    <div class="cart-table-total">
+                        <div class="row">
+                            <div class="col-sm"><a href="#" class="btn btn--alt"><i class="icon-cross"></i>
+                                <span>clear shopping cart</span></a> <a href="{% url 'accounts:index' %}" class="btn btn--grey">
+                                <i class="icon-repeat"></i><span>continue shopping</span></a></div>
+                            <div class="col-sm-auto">
+                               
+                                <span id='total1'></span>
+                                
+                                <button type="submit" class="btn"><i class="icon-angle-left"></i>
+                                <span>proceed to checkout</span></button></div>
+                               
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    <!-- <div class="sidebar-block">
+                        <div class="card-total text-uppercase">Subtotal <span class="card-total-price" id='total1'></span></div><a href="{% url 'accounts:checkout' %}" class="btn btn--full btn--lg">proceed to checkout</a>
+                    </div> -->
+                </div>
+                </form>
+                </div>
+                
+            </div>
+        </div>
+      
+    </div>
+
+
+
+
+
+
+
+        <div class="holder mt-0">
+            <div class="container">
+                <!-- <h1 class="text-center">Shopping Cart</h1> -->
+                <!-- <div class="row">
+                    <div class="col-md-8">
+                        <div class="cart-table">
+                            <div id='cart_view'></div>
+                            <div class="cart-table-total">
+                                <div class="row">
+                                    <div class="col-sm"><a href="#" class="btn btn--alt"><i class="icon-cross"></i><span>clear shopping cart</span></a> <a href="#" class="btn btn--grey"><i class="icon-repeat"></i><span>update cart</span></a></div>
+                                    <div class="col-sm-auto"><a href="#" class="btn"><i class="icon-angle-left"></i><span>continue shopping</span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="sidebar-block">
+                            <div class="card-total text-uppercase">Subtotal <span class="card-total-price" id='total1'></span></div><a href="{% url 'accounts:checkout' %}" class="btn btn--full btn--lg">proceed to checkout</a>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    {% endblock %}

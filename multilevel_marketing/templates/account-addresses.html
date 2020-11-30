@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>My account</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 aside aside--left">
+                        <!-- <div class="list-group"><a href="account-details.html" class="list-group-item">Account Details</a> <a href="account-addresses.html" class="list-group-item active">My Addresses</a> <a href="account-wishlist.html" class="list-group-item">My Wishlist</a> <a href="account-history.html" class="list-group-item">My Order History</a> <a href="#" class="list-group-item">My Reviews</a> <a href="#" class="list-group-item">My Saved Tags</a> <a href="#" class="list-group-item">Compare Products</a></div> -->
+                        <div class="list-group">
+                            <a href="{% url 'accounts:account_details' %}" class="list-group-item">Account Details</a> 
+                            <a href="{% url 'accounts:personal_details' %}" class="list-group-item">Personal Info</a> 
+                            <a href="{% url 'accounts:account_addresses' %}" class="list-group-item active">My Addresses</a> 
+                            <a href="{% url 'accounts:account_wishlist' %}" class="list-group-item">My Wishlist</a>
+                            <a href="{% url 'payment:account_history' %}" class="list-group-item">My Order History</a>
+                                 
+                              <!-- <a href="#" class="list-group-item">My Reviews</a> 
+                              <a href="#" class="list-group-item">My Saved Tags</a>
+                               <a href="#" class="list-group-item">Compare Products</a> -->
+                            </div>
+                    </div>
+                   
+                    {% ifequal user_p 2 %}
+                        
+                        
+                       
+                        
+                        
+                    {% else %}
+                    
+                    <div class="col-md-8 aside">
+                        
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form method='POST' action="{% url 'accounts:account_addresses' %}" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <h3>Edit Address</h3>
+                                            <div class="row">
+                                                <div class="col-sm-12"><label class="text-uppercase">Address:</label>
+                                                    <div class="form-group"><input type="text" name="address" class="form-control"></div>
+                                                </div>
+                                                <div class="col-sm-12"><label class="text-uppercase">Landmark:</label>
+                                                    <div class="form-group"><input type="text" name="landmark" class="form-control"></div>
+                                                </div>
+                                            </div>   
+                                            <div class="row">
+                                                <div class="col-sm-6"><label class="text-uppercase">Country</label>
+                                                    <div class="form-group"><input type="text" name="country"  id='country'class="form-control"></div>
+                                                </div>
+                                                <div class="col-sm-6"><label class="text-uppercase">State</label>
+                                                    <div class="form-group"><input type="text" name="state" id='state' class="form-control"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6"><label class="text-uppercase">City:</label>
+                                                    <div class="form-group"><input type="text" name="city" id='city' class="form-control"></div>
+                                                </div>
+                                                <div class="col-sm-6"><label class="text-uppercase">zip/postal code:</label>
+                                                    <div class="form-group"><input type="text" name="pincode" id='zipcode' class="form-control"></div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"><input id="formCheckbox1" name="default" type="checkbox"> <label for="formCheckbox1">Set address as default</label></div>
+                                            <div class="mt-2"><button type="reset" class="btn btn--alt js-close-form" data-form="#updateAddress">Cancel</button> <button type="submit" class="btn ml-1">Add Address</button></div>
+                                        </div>
+                                    </form> 
+            
+                                       
+                                </div>
+                                
+                       
+                        <div class="card mt-3 d-none">
+                            
+                            
+                            
+
+                        </div>
+                        
+                        
+                    </div>
+                    {% endifequal %}
+                    
+
+                    
+                    <div class="col-md-9 aside">
+                        
+                        <div class="row">
+                            {% for i in user_data %}
+                            <div class="col-sm-6">
+                                
+                                <div class="card">
+                                    <div class="card-body">
+                                        {% if i.default == True %} 
+                                                <h3>Address (Default)</h3>
+                                                   
+                                        {% else %}    
+                                                <h3>Address </h3>
+                                                    
+                                        {% endif %}  
+                                        <!-- <h3>Address 1 (Default)</h3> -->
+                                        
+                                        <p>{{i.address}}<br>{{i.landmark}}<br>{{i.city}}</p>{{i.state}},{{i.pincode}}<br>{{i.country}}</p>
+                                        <div class="mt-2 clearfix"><a href="#" class="link-icn js-show-form" data-form="#{{i.id}}"><i class="icon-pencil"></i>Edit</a> <a href="#" class="link-icn ml-1 float-right"><i class="icon-cross"></i>Delete</a></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="card">
+                                    <div class="card-body">
+                                        <h3>Address 1 (Default)</h3>
+                                        
+                                        <p>Thomas Nolan Kaszas<br>5322 Otter Ln Middleberge<br>FL 32068 Palm Bay FL 32907</p>
+                                        <div class="mt-2 clearfix"><a href="#" class="link-icn js-show-form" data-form="#updateAddress"><i class="icon-pencil"></i>Edit</a> <a href="#" class="link-icn ml-1 float-right"><i class="icon-cross"></i>Delete</a></div>
+                                    </div>
+                                </div> -->
+                            </div>
+                           {% endfor %}
+
+                            
+                            
+                        </div> 
+                        {% for i in user_data %}
+                        <div class="card mt-3 d-none" id="{{i.id}}">
+                        
+                            <div class="row">
+                                <div class="col-sm-12">
+                                   
+                                    
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form method='POST' action="{% url 'accounts:edit' i.id %}" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <h3>Edit Address</h3>
+                                                <div class="row">
+                                                    <div class="col-sm-12"><label class="text-uppercase">Address:</label>
+                                                        <div class="form-group"><input type="text" name="address" value="{{i.address}}" class="form-control"></div>
+                                                    </div>
+                                                    <div class="col-sm-12"><label class="text-uppercase">Landmark:</label>
+                                                        <div class="form-group"><input type="text" name="landmark" value="{{i.landmark}}" class="form-control"></div>
+                                                    </div>
+                                                </div>   
+                                                <div class="row">
+                                                <div class="col-sm-6"><label class="text-uppercase">Country</label>
+                                                    <div class="form-group"><input type="text" name="country" value="{{i.country}}"  id='country'class="form-control"></div>
+                                                </div>
+                                                <div class="col-sm-6"><label class="text-uppercase">State</label>
+                                                    <div class="form-group"><input type="text" name="state" id='state' value="{{i.state}}" class="form-control"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6"><label class="text-uppercase">City:</label>
+                                                    <div class="form-group"><input type="text" name="city" id='city' value="{{i.city}}" class="form-control"></div>
+                                                </div>
+                                                <div class="col-sm-6"><label class="text-uppercase">zip/postal code:</label>
+                                                    <div class="form-group"><input type="text" name="pincode" id='zipcode' value="{{i.pincode}}" class="form-control"></div>
+                                                </div>
+                                            </div>
+                                                <div class="clearfix">
+                                                {% if i.default == True %} 
+                                                    <input id="formCheckbox3" name="default" type="checkbox" checked>
+                                                    <label for="formCheckbox3">Set address as default</label></div>
+                                                {% else %}    
+                                                    <input id="formCheckbox2" name="default" type="checkbox">
+                                                    <label for="formCheckbox2">Set address as default</label></div>
+                                                {% endif %}        
+                                                <div class="mt-2"><button type="reset" class="btn btn--alt js-close-form" data-form="#{{i.id}}">Cancel</button> <button type="submit" class="btn ml-1">Add Address</button></div>
+                                            </div>
+                                        </form> 
+                                        
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                        </div>
+                        {% endfor %}
+                </div>
+                
+             
+            </div>
+        </div>
+    </div>
+     {% endblock %}
